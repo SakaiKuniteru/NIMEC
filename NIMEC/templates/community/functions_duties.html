@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static  %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <title>NIMEC</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"  style="margin-top: 0; padding-top: 0;">
+        <div class="container-fluid custom-02" style="height: 55px;">
+            <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
+                <div class="ms-auto">
+                    <button type="button" class="btn btn-outline-primary me-2 custom-01">Đăng ký</button>
+                    <button type="button" class="btn btn-outline-primary custom-01">Đăng nhập</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <h3 class="text-align-center">TRUNG TÂM</h3>
+        <h3 class="text-align-center">ĐÀO TẠO THEO NHU CẦU XÃ HỘI</h3>
+        <br>
+        <div class="container text-center" style="background-color: #DFF8F6; padding: 10px;">
+            <div class="row row-cols-6">
+                <div class="col custom-border" style="border-right: 1.5px solid #a19999;">
+                    <div class="dropdown">
+                        <button class="btn  " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Giới Thiệu
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="institute_introduction">Giới Thiệu Viện</a></li>
+                          <li><a class="dropdown-item" href="functions_duties">Chức năng & Nhiệm vụ của Viện</a></li>
+                          <li><a class="dropdown-item" href="institute_leadership">Đảng ủy - Lãnh đạo Viện</a></li>
+                          <li><a class="dropdown-item" href="organizational_structure">Cơ cấu Tổ chức Viện</a></li>
+                        </ul>
+                     </div>
+                </div>
+              <div class="col custom-border" style="border-right: 1.5px solid #a19999;">Đào Tạo</div>
+              <div class="col custom-border" style="border-right: 1.5px solid #a19999;">Tin Tức</div>
+              <div class="col custom-border" style="border-right: 1.5px solid #a19999;">Thư Viện</div>
+              <div class="col custom-border" style="border-right: 1.5px solid #a19999;">Giảng Viên</div>
+              <div class="col custom-border">Tuyển Dụng</div>
+            </div>
+        </div>
+    </header>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</b<>
+</html>
