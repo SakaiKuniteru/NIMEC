@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static  %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styless.css' %}">
+        <link rel="icon" href="{% static 'images/logo.jpg' %}">
+        <title>Cơ Cấu Tổ Chức Viện</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary"  style="margin-top: 0; padding-top: 0;">
+            <div class="container-fluid custom-02" style="height: 55px;">
+                <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
+                    <div class="ms-auto">
+                        <button type="button" class="btn btn-outline-primary me-2 custom-01">Đăng ký</button>
+                        <button type="button" class="btn btn-outline-primary custom-01">Đăng nhập</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            <div class="container  position-relative">
+                <img src=" {% static 'images/slide/slide.jpg' %}" class="d-block w-100" alt="First slide" width="800" height="200">
+                <div class="carousel-caption d-flex justify-content-center align-items-center text-center">
+                    <div>
+                        <h1 class="font-weight04">TRUNG TÂM ĐÀO TẠO</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center color-03 mt-2" style="padding: 8px;">
+                <div class="row row-cols-6 font-weight03 fs-5">
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="font-weight03 fs-5">Giới Thiệu</div>
+                                
+                            </button>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="institute_introduction">Giới Thiệu Viện</a></li>
+                            <li><a class="dropdown-item" href="functions_duties">Chức năng & Nhiệm vụ của Viện</a></li>
+                            <li><a class="dropdown-item" href="institute_leadership">Đảng ủy - Lãnh đạo Viện</a></li>
+                            <li><a class="dropdown-item" href="organizational_structure">Cơ cấu Tổ chức Viện</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="tranning" class="text-decoration-none color-04">
+                            Đào Tạo
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Tin Tức
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Thư Viện
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Giảng Viên
+                        </a>
+                    </div>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Tuyển Dụng
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="container mt-5">
+                <div class="text-center mb-4">
+                    <h5 class="bg-primary text-white p-2 rounded d-inline-block">Đảng Ủy, Lãnh Đạo Viện</h5>
+                </div>
+         
+                <div class="row">
+        
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header text-white text-center" style="background-color: #0056b3;">
+                                Khối các phòng chức năng
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="staff_organization" class="color-04 no-underline">Phòng Tổ chức cán bộ</a>
+                                    <a href="#" class="d-block small text-primary">Trưởng phòng</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="administrative" class="color-04 no-underline">Phòng Hành chính tổng hợp</a>
+                                    <a href="#" class="d-block small text-primary">Nhân viên</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="finance_accounting" class="color-04 no-underline">Phòng Tài chính - Kế toán</a>
+                                    
+                                </li>
+                                <li class="list-group-item">
+                                    
+                                    <a href="scientific_management" class="color-04 no-underline">Phòng Quản lý Khoa học, Đào tạo và Hợp tác quốc tế</a>
+                                </li>
+                                <li class="list-group-item">
+                                    Văn phòng Đại diện tại thành phố Hồ Chí Minh
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            
+        
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header text-white text-center" style="background-color: #0056b3;">
+                                Khối nghiên cứu khoa học, phát triển công nghệ và đào tạo
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Khoa Công nghệ Thiết bị y tế</li>
+                                <li class="list-group-item">Khoa Công nghệ Công trình y tế</li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header text-white text-center" style="background-color: #0056b3;">
+                                Khối kiểm định, hiệu chuẩn và kiểm tra, đánh giá chất lượng Trang thiết bị y tế
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Trung tâm Kiểm định, hiệu chuẩn trang thiết bị y tế</li>
+                                <li class="list-group-item">Trung tâm Đánh giá chất lượng trang thiết bị y tế</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header text-white text-center" style="background-color: #0056b3;">
+                                Khối phát triển sản xuất, kinh doanh và dịch vụ
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Trung tâm Sản xuất và bảo hành, bảo trì Trang thiết bị y tế</li>
+                                <li class="list-group-item">Trung tâm Cung ứng Vật tư, thiết bị y tế</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="container mt-5">
+                <h5 class="text-primary">PHÒNG HÀNH CHÍNH TỔNG HỢP</h5>
+                <h6>1. Chức năng</h6>
+                <p>
+                    Phòng Hành chính tổng hợp là đơn vị tham mưu, có chức năng thực hiện công tác hành chính tổng hợp, văn thư, lưu trữ, đảm bảo kỹ thuật văn phòng, phục vụ lễ tân, khánh tiết. Thực hiện các dự án đầu tư xây dựng, tổ chức quản lý và sử dụng hợp lý có hiệu quả tài sản của Viện bao gồm: đất đai, các công trình xây dựng, phương tiện vận chuyển, các trang thiết bị máy móc và những loại tài sản khác được mua sắm, trang bị từ ngân sách nhà nước để đảm bảo các hoạt động của Viện.
+                </p>
+
+                <h6>2. Nhiệm vụ và quyền hạn</h6>
+                <h6>2.1. Công tác hành chính</h6>
+                <ul>
+                    <li>Tư vấn giúp Ban lãnh đạo trong công tác quản lý hành chính toàn cơ quan.</li>
+                    <li>Tổ chức thực hiện và quản lý các văn bản đi, các văn bản đến theo đúng chế độ quy định của công tác văn thư. Hướng dẫn thể thức văn bản theo đúng quy định hiện hành.</li>
+                    <li>Kí lục sao công văn, văn bằng chứng chỉ, các giấy tờ hành chính trong phạm vi được uỷ nhiệm. Cấp giấy giới thiệu và giấy đi đường cho cán bộ theo sự ủy nhiệm của Ban lãnh đạo.</li>
+                    <li>Quản lý bộ dấu của Viện theo các quy định hiện hành. Tổ chức thực hiện công tác lưu trữ các công văn, giấy tờ, tài liệu chung của Viện đảm bảo bí mật nhà nước và thuận tiện tra cứu.</li>
+                    <li>Tổ chức tiếp đón khách trong nước và nước ngoài đến làm việc với Viện. Phối hợp và chủ động tổ chức các sự kiện, hội nghị và học tập chung của Viện. Phối hợp với các đoàn thể tổ chức các hoạt động văn nghệ, thể dục thể thao, mít tinh, bầu cử, v.v...</li>
+                    <li>Đảm bảo vệ sinh cơ quan, các phòng lãnh đạo, phòng họp, phòng truyền thống luôn sạch, đẹp.</li>
+                    <li>Thực hiện bộ phận một cửa công tác kiểm tra chất lượng hàng hóa xuất nhập khẩu.</li>
+                    <li>Quản lý việc trông giữ xe đạp, xe máy, ô tô cho công chức viên chức và người lao động, đảm bảo an ninh nội bộ cơ quan.</li>
+                </ul>
+
+                <h6>2.2. Công tác quản trị vật tư thiết bị</h6>
+                <ul>
+                    <li>Tham mưu trong các lĩnh vực: đầu tư, mua sắm vật tư, trang thiết bị máy móc và các công trình xây dựng cơ bản phục vụ thực hiện các chức năng nhiệm vụ của Viện.</li>
+                    <li>Xây dựng kế hoạch và dự trù kinh phí duy tu bảo dưỡng, sửa chữa lớn các tài sản: đổi mới trang thiết bị, từng bước hiện đại hóa cơ sở vật chất kỹ thuật của Viện.</li>
+                    <li>Tổ chức phối hợp thực hiện các hoạt động mời thầu, đấu thầu mua sắm vật tư, trang thiết bị máy móc và xây dựng các công trình cơ bản của Viện.</li>
+                    <li>Hàng năm, phối hợp với phòng Tài chính kế toán tổ chức kiểm kê, đánh giá lại giá trị tài sản, thanh lý tài sản của đơn vị và thực hiện chế độ báo cáo theo quy định nhà nước.</li>
+                    <li>Tổ chức triển khai và phối hợp với các đơn vị thực hiện công tác xây dựng và phát triển cơ sở vật chất của Viện.</li>
+                    <li>Quản lý hệ thống nhà kho và các tài sản trên đất, hệ thống điện, nước của cơ quan, báo cáo xử lý kịp thời khi xảy ra các sự cố.</li>
+                    <li>Quản lý xe và điều phối sử dụng các phương tiện vận chuyển phục vụ công tác của Viện.</li>
+                    <li>Tổng hợp báo cáo định kỳ công tác sử dụng, đầu tư và quản lý tài sản theo quy định của Nhà nước và của Viện.</li>
+                    <li>Thực hiện các công việc khác do Ban lãnh đạo phân công.</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer >
+            <div class="mt-3" style="background-color: lightblue;">
+                <br>
+                <div class="text-align-center" >
+                    <h4>CỔNG THÔNG TIN ĐIỆN TỬ VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ - BỘ Y TẾ</h4>
+                    <h6>Trụ sở chính: Số 40 Phương Mai - Đống Đa - Hà Nội</h6>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6" style="text-align: right;">
+                            <h6>Website: <a href="http://www.nimec.gov.vn">http://www.nimec.gov.vn</a> </h6>
+                            <h6>ĐT: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                        <div class="col-6">
+                            <h6>Email: <a href="mailto:nimec40pm@moh.gov.vn">nimec40pm@moh.gov.vn</a></h6>
+                            <h6>Fax: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background-color: #2C9F98;">
+                <br>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static  %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styless.css' %}">
+        <link rel="icon" href="{% static 'images/logo.jpg' %}">
+        <title>Cơ Cấu Tổ Chức Viện</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary"  style="margin-top: 0; padding-top: 0;">
+            <div class="container-fluid custom-02" style="height: 55px;">
+                <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
+                    <div class="ms-auto">
+                        <button type="button" class="btn btn-outline-primary me-2 custom-01">Đăng ký</button>
+                        <button type="button" class="btn btn-outline-primary custom-01">Đăng nhập</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            <div class="container  position-relative">
+                <img src=" {% static 'images/slide/slide.jpg' %}" class="d-block w-100" alt="First slide" width="800" height="200">
+                <div class="carousel-caption d-flex justify-content-center align-items-center text-center">
+                    <div>
+                        <h1 class="font-weight04">TRUNG TÂM ĐÀO TẠO</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center color-03 mt-2" style="padding: 8px;">
+                <div class="row row-cols-6 font-weight03 fs-5">
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="font-weight03 fs-5">Giới Thiệu</div>
+                                
+                            </button>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="institute_introduction">Giới Thiệu Viện</a></li>
+                            <li><a class="dropdown-item" href="functions_duties">Chức năng & Nhiệm vụ của Viện</a></li>
+                            <li><a class="dropdown-item" href="institute_leadership">Đảng ủy - Lãnh đạo Viện</a></li>
+                            <li><a class="dropdown-item" href="organizational_structure">Cơ cấu Tổ chức Viện</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="tranning" class="text-decoration-none color-04">
+                            Đào Tạo
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Tin Tức
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Thư Viện
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Giảng Viên
+                        </a>
+                    </div>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Tuyển Dụng
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="container mt-5">
+                <div class="text-center mb-4">
+                    <h5 class="bg-primary text-white p-2 rounded d-inline-block">Đảng Ủy, Lãnh Đạo Viện</h5>
+                </div>
+         
+                <div class="row">
+        
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header text-white text-center" style="background-color: #0056b3;">
+                                Khối các phòng chức năng
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <a href="staff_organization" class="color-04 no-underline">Phòng Tổ chức cán bộ</a>
+                                    <a href="#" class="d-block small text-primary">Trưởng phòng</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="administrative" class="color-04 no-underline">Phòng Hành chính tổng hợp</a>
+                                    <a href="#" class="d-block small text-primary">Nhân viên</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="finance_accounting" class="color-04 no-underline">Phòng Tài chính - Kế toán</a>
+                                    
+                                </li>
+                                <li class="list-group-item">
+                                    
+                                    <a href="scientific_management" class="color-04 no-underline">Phòng Quản lý Khoa học, Đào tạo và Hợp tác quốc tế</a>
+                                </li>
+                                <li class="list-group-item">
+                                    Văn phòng Đại diện tại thành phố Hồ Chí Minh
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            
+        
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header text-white text-center" style="background-color: #0056b3;">
+                                Khối nghiên cứu khoa học, phát triển công nghệ và đào tạo
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Khoa Công nghệ Thiết bị y tế</li>
+                                <li class="list-group-item">Khoa Công nghệ Công trình y tế</li>
+                            </ul>
+                        </div>
+                    </div>
+            
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header text-white text-center" style="background-color: #0056b3;">
+                                Khối kiểm định, hiệu chuẩn và kiểm tra, đánh giá chất lượng Trang thiết bị y tế
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Trung tâm Kiểm định, hiệu chuẩn trang thiết bị y tế</li>
+                                <li class="list-group-item">Trung tâm Đánh giá chất lượng trang thiết bị y tế</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="col-md-3 mb-4">
+                        <div class="card h-100">
+                            <div class="card-header text-white text-center" style="background-color: #0056b3;">
+                                Khối phát triển sản xuất, kinh doanh và dịch vụ
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Trung tâm Sản xuất và bảo hành, bảo trì Trang thiết bị y tế</li>
+                                <li class="list-group-item">Trung tâm Cung ứng Vật tư, thiết bị y tế</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="container mt-5">
+                <h5 class="text-primary">PHÒNG TÀI CHÍNH - KẾ TOÁN</h5>
+                <h6>1. Chức năng</h6>
+                <p>
+                    Phòng Tài chính kế toán có chức năng tham mưu cho Lãnh đạo về chiến lược và chính sách kinh tế; giúp Lãnh đạo thực hiện chức năng quản lý nhà nước về công tác đầu tư phát triển, tài chính, kế toán, viện trợ, quản lý tài chính của các đơn vị.
+                </p>
+
+                <h6>2. Nhiệm vụ và quyền hạn</h6>
+                
+                <h6>2.1. Lĩnh vực chiến lược, cơ chế và chính sách</h6>
+                <ul>
+                    <li>Làm đầu mối xây dựng các đề án, các nghiên cứu về quản lý, tự chủ tài chính, các dự án đầu tư cho phát triển trong Viện.</li>
+                </ul>
+
+                <h6>2.2. Lĩnh vực kế hoạch hàng năm, 5 năm và kế hoạch dài hạn</h6>
+                <ul>
+                    <li>Tổng hợp kế hoạch phát triển hàng năm, 5 năm và dài hạn của toàn Viện. Chuẩn bị các báo cáo sơ kết, tổng kết hàng năm và 5 năm về tài chính.</li>
+                    <li>Thông báo các chỉ tiêu kế hoạch cho các đơn vị theo quy định hiện hành.</li>
+                    <li>Hướng dẫn, đôn đốc, giám sát, đánh giá, báo cáo sơ kết và tổng kết việc thực hiện kế hoạch ở các đơn vị.</li>
+                </ul>
+
+                <h6>2.3. Lĩnh vực quản lý vốn đầu tư xây dựng cơ bản, vốn sự nghiệp KH</h6>
+                <ul>
+                    <li>Làm đầu mối xây dựng kế hoạch đầu tư xây dựng cơ bản hàng năm và 5 năm.</li>
+                    <li>Quản lý vốn đầu tư xây dựng cơ bản tập trung, sửa chữa lớn, cải tạo, nâng cấp cơ sở hạ tầng các công trình của đơn vị.</li>
+                    <li>Quản lý nguồn vốn ngân sách sự nghiệp khoa học, làm đầu mối tổng hợp, cân đối và theo dõi việc triển khai các mục tiêu thuộc đề tài và các chương trình, dự án y tế bộ, cấp nhà nước.</li>
+                    <li>Tổng hợp đánh giá hiệu quả đầu tư, thực hiện chương trình hàng năm, 5 năm.</li>
+                </ul>
+
+                <h6>2.4. Quản lý công tác tài chính, ngân sách toàn cơ quan</h6>
+                <ul>
+                    <li>Dự toán thu chi ngân sách toàn đơn vị.</li>
+                    <li>Xây dựng các văn bản quy phạm pháp luật liên quan đến công tác quản lý tài chính trong cơ quan.</li>
+                    <li>Hướng dẫn các đơn vị lập dự toán ngân sách theo quy định của Luật Ngân sách nhà nước; kiểm tra việc thực hiện các chế độ, chính sách liên quan đến quản lý tài chính, quản lý vốn của Viện.</li>
+                    <li>Quản lý tài chính, ngân sách đối với các nguồn kinh phí từ khâu lập kế hoạch, dự toán đến quyết toán.</li>
+                    <li>Xây dựng dự toán thu chi ngân sách trong các dự án và cho đơn vị trực thuộc, cho chương trình, dự án viện trợ, vốn vay, thông báo cấp ngân sách và thực hiện việc giám sát sử dụng ngân sách.</li>
+                    <li>Tổng hợp, phân tích, đánh giá hoạt động kinh tế trong Viện, đề xuất các giải pháp cải tiến, đổi mới cơ chế quản lý tài chính, ngân sách của Viện.</li>
+                    <li>Hướng dẫn thực hiện chế độ, quy định về tài chính, kế toán theo các thông tư, văn bản của Nhà nước.</li>
+                    <li>Quản lý vốn đầu tư và xây dựng cơ bản từ khâu xây dựng kế hoạch đến khâu quyết toán các hạng mục công trình và toàn bộ công trình.</li>
+                    <li>Quản lý các nguồn vốn viện trợ, vốn vay và các nguồn vốn khác theo quy định hiện hành.</li>
+                    <li>Quản lý công tác tài chính bao gồm giá, thuế, vốn, các loại phí, các chế độ định mức thuộc thẩm quyền của Viện.</li>
+                </ul>
+
+                <h6>2.5. Quản lý công tác kế toán và thực hiện kiểm toán nội bộ</h6>
+                <ul>
+                    <li>Thực hiện kiểm toán nội bộ và kiểm tra kế toán, tổ chức xem xét quyết toán của các đơn vị trực thuộc Viện.</li>
+                    <li>Tổng hợp báo cáo quyết toán theo đúng tiến độ.</li>
+                    <li>Tổ chức bồi dưỡng nghiệp vụ quản lý tài chính - kế toán cho các cán bộ làm công tác tài chính - kế toán trong Viện.</li>
+                    <li>Xây dựng và quản lý thống nhất các chỉ số thống kê, phương pháp thu thập, ghi chép, quy trình thực hiện, quy chế cung cấp và sử dụng số liệu, hệ thống biểu mẫu thống kê thống nhất trong toàn Viện.</li>
+                    <li>Phân tích số liệu thống kê định kỳ: hàng năm, 5 năm.</li>
+                </ul>
+
+                <h6>2.6. Về công sản, Bảo hiểm y tế, các loại phí</h6>
+                <ul>
+                    <li>Quản lý các nguồn thu phí của các đơn vị trực thuộc.</li>
+                    <li>Tổ chức quản lý công sản được Nhà nước giao cho Viện quản lý sử dụng.</li>
+                </ul>
+
+                <h6>2.7. Công tác đấu thầu</h6>
+                <ul>
+                    <li>Hướng dẫn các đơn vị trực thuộc, các Ban dự án, các chủ đề tài thực hiện quy chế đấu thầu theo quy định công tác đấu thầu mua sắm vật tư, trang thiết bị và xây dựng cơ bản theo các quy định hiện hành.</li>
+                    <li>Làm đầu mối tổ chức thẩm định kế hoạch đấu thầu, kết quả đấu thầu đối với các dự án và các gói thầu thuộc thẩm quyền của Viện để trình Bộ trưởng phê duyệt, bao gồm các gói thầu thuộc ngân sách sự nghiệp y tế và đầu tư.</li>
+                    <li>Xem xét, báo cáo Lãnh đạo trình phê duyệt kế hoạch đấu thầu và kết quả các gói thầu thuộc thẩm quyền của Viện.</li>
+                    <li>Xem xét báo cáo lãnh đạo và chịu trách nhiệm trình Bộ y tế phê duyệt kế hoạch đấu thầu và kết quả thầu của các gói thầu thuộc thẩm quyền của Bộ y tế.</li>
+                    <li>Chịu trách nhiệm tổng kết, báo cáo kết quả công tác đấu thầu hàng năm của Viện đối với Bộ Y tế.</li>
+                </ul>
+            </div>
+        </section>
+
+        <footer >
+            <div class="mt-3" style="background-color: lightblue;">
+                <br>
+                <div class="text-align-center" >
+                    <h4>CỔNG THÔNG TIN ĐIỆN TỬ VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ - BỘ Y TẾ</h4>
+                    <h6>Trụ sở chính: Số 40 Phương Mai - Đống Đa - Hà Nội</h6>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6" style="text-align: right;">
+                            <h6>Website: <a href="http://www.nimec.gov.vn">http://www.nimec.gov.vn</a> </h6>
+                            <h6>ĐT: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                        <div class="col-6">
+                            <h6>Email: <a href="mailto:nimec40pm@moh.gov.vn">nimec40pm@moh.gov.vn</a></h6>
+                            <h6>Fax: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background-color: #2C9F98;">
+                <br>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

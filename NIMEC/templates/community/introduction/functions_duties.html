@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static  %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styless.css' %}">
+        <link rel="icon" href="{% static 'images/logo.jpg' %}">
+        <title>Chức Năng & Nhiệm Vụ Của Viện</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary"  style="margin-top: 0; padding-top: 0;">
+            <div class="container-fluid custom-02" style="height: 55px;">
+                <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
+                    <div class="ms-auto">
+                        <button type="button" class="btn btn-outline-primary me-2 custom-01">Đăng ký</button>
+                        <button type="button" class="btn btn-outline-primary custom-01">Đăng nhập</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            <div class="container  position-relative">
+                <img src=" {% static 'images/slide/slide.jpg' %}" class="d-block w-100" alt="First slide" width="800" height="200">
+                <div class="carousel-caption d-flex justify-content-center align-items-center text-center">
+                    <div>
+                        <h1 class="font-weight04">TRUNG TÂM ĐÀO TẠO</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center color-03 mt-2" style="padding: 8px;">
+                <div class="row row-cols-6 font-weight03 fs-5">
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="font-weight03 fs-5">Giới Thiệu</div>
+                                
+                            </button>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="institute_introduction">Giới Thiệu Viện</a></li>
+                            <li><a class="dropdown-item" href="functions_duties">Chức năng & Nhiệm vụ của Viện</a></li>
+                            <li><a class="dropdown-item" href="institute_leadership">Đảng ủy - Lãnh đạo Viện</a></li>
+                            <li><a class="dropdown-item" href="organizational_structure">Cơ cấu Tổ chức Viện</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="tranning" class="text-decoration-none color-04">
+                            Đào Tạo
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Tin Tức
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Thư Viện
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Giảng Viên
+                        </a>
+                    </div>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Tuyển Dụng
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            <div class="container">
+                <div class="text-center mb-5">
+                    <div class=" d-inline-block font-weight03 font-size01 color-02 rectangle-02 mt-3">
+                        CHỨC NĂNG - NHIỆM VỤ CỦA VIỆN
+                    </div>
+                </div>
+                <p class="color-02 font-size01 font-weight01">CHỨC NĂNG, NHIỆM VỤ VÀ QUYỀN HẠN CỦA VIỆN</p>
+                <div class="container justify">
+                    <li class="font-weight04 font-size03 ">Chức Năng</li>
+                    <ul class="font-size03">Viện Trang thiết bị và Công trình y tế là đơn vị nghiên cứu cơ bản, nghiên cứu chiến lược, chính sách, nghiên cứu xây dựng định mức kinh tế - kỹ thuật và nghiên cứu phát triển công nghệ trong lĩnh vực trang thiết bị và công trình y tế; Thực hiện kiểm định, hiệu chuẩn, kiểm tra, đánh giá chất lượng trang thiết bị y tế; Đào tạo cán bộ chuyên ngành; Chỉ đạo tuyến và Tổ chức các dịch vụ khoa học kỹ thuật, dịch vụ cung ứng trong lĩnh vực trang thiết bị và công trình y tế theo quy định của pháp luật.</ul>
+                </div>
+                <div class="container justify mt-4">
+                    <li class="font-weight04 font-size03 ">Nhiệm Vụ</li>
+                    <ul>
+                            <p class="font-size03">1. Nghiên cứu khoa học và phát triển công nghệ trong lĩnh vực trang thiết bị và công trình y tế</p>
+                        <ul>
+                            <p class="font-size03">a) Nghiên cứu tác động của các yếu tố Vật lý học, Hoá học, Cơ học, Điều khiển học, Y sinh học … đối với cơ thể con người nhằm mục đích ứng dụng trong lĩnh vực trang thiết bị y tế;</p>
+                            <p class="font-size03">b) Nghiên cứu thiết kế, chế tạo trang thiết bị y tế;</p>
+                            <p class="font-size03">c) Nghiên cứu triển khai ứng dụng công nghệ mới, kỹ thuật mới, phát triển và hoàn thiện công nghệ sản xuất trang thiết bị y tế tại Việt Nam;</p>
+                            <p class="font-size03">d) Nghiên cứu xây dựng định mức kinh tế - kỹ thuật chuyên ngành về trang thiết bị và công trình y tế;</p>
+                            <p class="font-size03">đ) Nghiên cứu thực trạng quản lý, khai thác, sử dụng… trang thiết bị và công trình y tế để đề xuất chiến lược, chính sách, quy hoạch phát triển ngành trang thiết bị và công trình y tế ở Việt Nam;</p>
+                            <p class="font-size03">e) Xây dựng quy trình đánh giá hợp chuẩn, hợp quy; quy trình bảo trì, bảo dưỡng, phân loại trang thiết bị và công trình y tế;</p>
+                            <p class="font-size03">g) Tổ chức thực hiện và phối hợp thực hiện các đề tài, dự án nghiên cứu sản xuất thử nghiệm, ứng dụng, chuyển giao công nghệ chuyên ngành trong lĩnh vực trang thiết bị và công trình y tế;</p>
+                            <p class="font-size03">h) Nghiên cứu đề xuất quy hoạch, kế hoạch xây dựng tiêu chuẩn quốc gia, quy chuẩn kỹ thuật quốc gia trong lĩnh vực trang thiết bị và công trình y tế;  Tham gia nghiên cứu xây dựng dự thảo tiêu chuẩn quốc gia và xây dựng dự thảo quy chuẩn kỹ thuật quốc gia trong lĩnh vực trang thiết bị và công trình y tế.</p>
+                        </ul>
+
+                        <p class="font-size03">2. Thực hiện kiểm định, hiệu chuẩn, kiểm tra, đánh giá chất lượng trang thiết bị y tế.</p>
+                        
+                        <ul>
+                            <p class="font-size03">a) Kiểm định, hiệu chuẩn trang thiết bị y tế</p>
+                            <ul>
+                                <p class="font-size03">- Nghiên cứu đề xuất danh mục trang thiết bị y tế cần được kiểm định, hiệu chuẩn; </p>
+                                <p class="font-size03">- Kiểm định ban đầu, định kỳ và sau sửa chữa lớn trang thiết bị y tế tại các cơ sở y tế ở Việt Nam theo quy định của pháp luật;</p>
+                                <p class="font-size03">- Hiệu chuẩn trang thiết bị y tế.</p>
+                            </ul>
+                            <p class="font-size03">b) Kiểm tra, đánh giá chất lượng trang thiết bị y tế</p>
+                            <ul>
+                                <p class="font-size03">- Thực hiện hoạt động thử nghiệm, chứng nhận hợp chuẩn, chứng nhận hợp quy đối với các trang thiết bị y tế sản xuất trong nước khi có đủ điều kiện và được cấp có thẩm quyền cho phép;                </p>
+                                <p class="font-size03">- Kiểm tra chất lượng trang thiết bị y tế nhập khẩu và các trang thiết bị y tế sản xuất trong nước theo quy định của pháp luật;</p>
+                                <p class="font-size03">- Giám định trang thiết bị y tế theo quy định của pháp luật.</p>
+                            </ul>
+                        </ul>
+
+                        <p class="font-size03">3. Tư vấn phát triển chuyên ngành trang thiết bị và công trình y tế</p>
+                        <ul>
+                            <p class="font-size03">3.1. Tư vấn cho cơ quan quản lý nhà nước:</p>
+                            <ul>
+                                <p class="font-size03">a) Đề xuất xây dựng chiến lược, cơ chế, chính sách, chương trình, giải pháp thực hiện và tổ chức quản lý, phát triển ngành trang thiết bị và công trình y tế;</p>
+                                <p class="font-size03">b) Tham mưu xây dựng, kiện toàn hệ thống kiểm định, hiệu chuẩn, kiểm tra, đánh giá chất lượng trang thiết bị y tế;</p>
+                                <p class="font-size03">c) Đề xuất về công tác xây dựng văn bản quy phạm pháp luật, quy định kỹ thuật về bảo quản, bảo trì, bảo dưỡng trang thiết bị và công trình y tế;</p>
+                            </ul>
+                            <p class="font-size03">3.2. Tư vấn cho các cơ sở y tế trong việc mua sắm, quản lý, khai thác sử dụng, bảo trì, bảo dưỡng, kiểm soát chất lượng thiết bị và công trình y tế.</p>
+                        </ul>
+                            
+                        <p class="font-size03">4. Hoạt động chỉ đạo tuyến</p>
+                        <ul>
+                            <p class="font-size03">a) Chỉ đạo về chuyên môn, kỹ thuật chuyên ngành đối với hệ thống kiểm định, hiệu chuẩn và kiểm tra, đánh giá chất lượng trang thiết bị y tế;</p>
+                            <p class="font-size03">b) Hỗ trợ các tuyến cơ sở nâng cao trình độ quản lý và chuyên môn về kiểm định, hiệu chuẩn trang thiết bị y tế;</p>
+                            <p class="font-size03">c) Chỉ đạo, theo dõi, giám sát, đánh giá hoạt động chuyên môn về trang thiết bị y tế và công trình y tế của các tuyến.</p>
+                        </ul>
+                            
+                        <p class="font-size03">5. Công tác đào tạo, bồi dưỡng và thông tin tuyên truyền, bảo vệ quyền lợi người tiêu dùng</p>
+                        <ul>
+                            <p class="font-size03">a) Xây dựng chương trình, nội dung, kế hoạch đào tạo, đào tạo liên tục và bồi dưỡng nâng cao trình độ chuyên môn cho đội ngũ cán bộ kỹ thuật chuyên ngành trang thiết bị và công trình y tế;</p>
+                            <p class="font-size03">b) Tham gia giảng dạy đào tạo đại học, sau đại học và kỹ thuật viên chuyên ngành trang thiết bị và công trình y tế ở trong và ngoài nước theo quy định của pháp luật;</p>
+                            <p class="font-size03">c) Tổ chức đào tạo liên tục, bồi dưỡng nâng cao và cập nhật kiến thức cho cán bộ sử dụng, bảo trì, sửa chữa chuyên ngành trang thiết bị và công trình y tế;</p>
+                            <p class="font-size03">d) Tổ chức đào tạo kiểm định viên trang thiết bị y tế cho các tuyến cơ sở khi được cấp có thẩm quyền cho phép;</p>
+                            <p class="font-size03">đ) Tuyên truyền, phổ biến, hướng dẫn áp dụng các tiêu chuẩn, quy chuẩn kỹ thuật và bảo vệ quyền lợi người tiêu dùng.</p>
+                        </ul>
+                        
+                        <p class="font-size03">6. Hợp tác quốc tế</p>
+                        <ul>
+                            <p class="font-size03">a) Chủ động khai thác nguồn viện trợ, đầu tư, thiết lập mối quan hệ hợp tác trao đổi kinh nghiệm về nghiên cứu khoa học, đào tạo cán bộ, cung cấp trang thiết bị và xây dựng cơ bản với các tổ chức, cá nhân ngoài nước. Tranh thủ sự viện trợ giúp đỡ của nước ngoài về vật chất, kỹ thuật, kiến thức để xây dựng Viện ngày càng phát triển;</p>
+                            <p class="font-size03">b) Xây dựng và tổ chức thực hiện các dự án đầu tư liên doanh, liên kết và hợp tác với các nước và tổ chức quốc tế trong lĩnh vực trang thiết bị và công trình y tế theo quy định của pháp luật;</p>
+                            <p class="font-size03">c) Tổ chức thực hiện quản lý về thu chi ngân sách và các nguồn tài chính theo các quy định của pháp luật;</p>
+                            <p class="font-size03">d) Tổ chức các hoạt động dịch vụ khoa học công nghệ, sản xuất kinh doanh các sản phẩm gắn với chức năng, nhiệm vụ và quyền hạn của Viện theo quy định của pháp luật nhằm tăng cường nguồn tài chính phục vụ các hoạt động của Viện và cải thiện đời sống của cán bộ, viên chức và người lao động trong Viện;</p>
+                        </ul>
+                    </ul>
+                    
+                </div>
+
+                <div class="container justify mt-4">
+                    <li class="font-weight04 font-size03 ">Quyền Hạn</li>
+                    <ul>
+                        <p class="font-size03">1. Viện được quyền tự chủ trong phạm vi chức năng, nhiệm vụ, quyền hạn được giao theo theo phân cấp của Bộ Y tế và theo quy định của pháp luật, chịu trách nhiệm trước Bộ trưởng Bộ Y tế và trước pháp luật về hoạt động của mình.</p>
+                        <p class="font-size03">2. Viện được sử dụng con dấu riêng, tài khoản riêng để giao dịch công tác trong phạm vi trách nhiệm và quyền hạn được Nhà nước quy định.</p>
+                        <p class="font-size03">3. Viện được quyền sử dụng đất, tài sản theo quy định của pháp luật.</p>
+                    </ul>
+                    
+                </div>
+
+            </div>
+        </section>
+
+        <footer >
+            <div class="mt-3" style="background-color: lightblue;">
+                <br>
+                <div class="text-align-center" >
+                    <h4>CỔNG THÔNG TIN ĐIỆN TỬ VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ - BỘ Y TẾ</h4>
+                    <h6>Trụ sở chính: Số 40 Phương Mai - Đống Đa - Hà Nội</h6>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6" style="text-align: right;">
+                            <h6>Website: <a href="http://www.nimec.gov.vn">http://www.nimec.gov.vn</a> </h6>
+                            <h6>ĐT: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                        <div class="col-6">
+                            <h6>Email: <a href="mailto:nimec40pm@moh.gov.vn">nimec40pm@moh.gov.vn</a></h6>
+                            <h6>Fax: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background-color: #2C9F98;">
+                <br>
+            </div>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
