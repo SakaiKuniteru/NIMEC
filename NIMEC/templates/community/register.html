@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
         <link rel="stylesheet" href="{% static 'register.css' %}">
         <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styless.css' %}">
         <link rel="icon" href="{% static 'images/logo.jpg' %}">
         <title>Đăng Ký</title>
     
@@ -19,68 +20,91 @@
         <header>
             <nav class="navbar navbar-expand-lg bg-body-tertiary"  style="margin-top: 0; padding-top: 0;">
                 <div class="container-fluid custom-02" style="height: 55px;">
-                    <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
+                    <a class="navbar-brand color-01" href="/">Viện trang thiết bị và công trình y tế</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
         
                     <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
                         <div class="ms-auto">
-                            <button type="button" class="btn btn-outline-primary custom-01">Đăng nhập</button>
+                            <button type="button" class="btn btn-outline-primary custom-01">
+                                <a href="login" class="alert-link no-underline">Đăng Nhập</a>
+                            </button>
                         </div>
                     </div>
                 </div>
             </nav>
 
-            <!-- <div class="row g-0 text-center">
-                <div class="col-md-3 custom-bg-color1 offset-3" style="border-radius: 15px; padding: 10px;">
-                    <span class="title-home alert-link text-align-center font-size03">Đăng Ký</span>
-                    <form method="post">
+            <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                <div class="col-md-3 custom-bg-color1 border01 text-center" style="width: 40%; background-color: #ffff !important; border: 2px solid black;">
+                    <form method="POST" action="{% url 'register' %}" class="needs-validation" novalidate>
                         {% csrf_token %}
-                        
-                        {% if error_messages %}
-                            <ul class="error-messages">
-                                {% for field, error in error_messages.items %}
-                                    <li>{{ error }}</li>
-                                {% endfor %}
-                            </ul>
-                        {% endif %}
-                        
+                        <span class="title-home alert-link font-size03">Đăng Ký</span>
                         <div class="container">
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <input class="form-control mb-0 mt-3 shadow-sm" name="firstName" type="text" placeholder="Họ" value="{{ input_data.firstName }}">
+                                    <input class="form-control mb-0 mt-3 shadow-sm border-01" name="firstName" type="text" placeholder="Họ" required value="{{ input_data.firstName|default:'' }}">
+                                    {% if error_messages.firstName %}
+                                        <div class="text-danger text-start">{{ error_messages.firstName }}</div>
+                                    {% endif %}
                                 </div>
                                 <div class="col-md-6">
-                                    <input class="form-control mb-0 mt-3 shadow-sm" name="lastName" type="text" placeholder="Tên" value="{{ input_data.lastName }}">
+                                    <input class="form-control mb-0 mt-3 shadow-sm border-01" name="lastName" type="text" placeholder="Tên" required value="{{ input_data.lastName|default:'' }}">
+                                    {% if error_messages.lastName %}
+                                        <div class="text-danger text-start">{{ error_messages.lastName }}</div>
+                                    {% endif %}
                                 </div>
                             </div>
-
-                            <input class="form-control mb-3 shadow-sm" name="doctorID" type="number" placeholder="Mã Bác Sĩ" value="{{ input_data.doctorID }}">
-                            <input class="form-control mb-3 shadow-sm" name="email" type="text" placeholder="Email" value="{{ input_data.email }}">
-                            <input class="form-control mb-3 shadow-sm" name="phoneNumber" type="number" placeholder="Số Điện Thoại" value="{{ input_data.phoneNumber }}">
-                            <select class="form-control mb-3 shadow-sm" name="expertise">
-                                <option value="expertise" disabled hidden>Chọn Chuyên Môn</option>
-                                <option value="general_practitioner" {% if input_data.expertise == 'general_practitioner' %}selected{% endif %}>Bác Sĩ Đa Khoa</option>
-                                <option value="endocrinologist" {% if input_data.expertise == 'endocrinologist' %}selected{% endif %}>Bác Sĩ Nội Tiết</option>
-                                <option value="nutritionist" {% if input_data.expertise == 'nutritionist' %}selected{% endif %}>Bác Sĩ Dinh Dưỡng</option>
-                                <option value="cardiologist" {% if input_data.expertise == 'cardiologist' %}selected{% endif %}>Bác Sĩ Tim Mạch</option>
-                            </select>
-                            <input class="form-control mb-3 shadow-sm" name="password" type="password" placeholder="Mật Khẩu" value="{{ input_data.password }}">
-                            <input class="form-control mb-3 shadow-sm" name="confirmPassword" type="password" placeholder="Xác Nhận Mật Khẩu" value="{{ input_data.confirmPassword }}">
+                            <input class="form-control shadow-sm border-01" name="email" type="email" placeholder="Email" required value="{{ input_data.email|default:'' }}">
+                            {% if error_messages.email %}
+                                <div class="text-danger text-start">{{ error_messages.email }}</div>
+                            {% endif %}
+                            <input class="form-control mt-3 shadow-sm border-01" name="phoneNumber" type="tel" placeholder="Số Điện Thoại" required value="{{ input_data.phoneNumber|default:'' }}">
+                            {% if error_messages.phoneNumber %}
+                                <div class="text-danger text-start">{{ error_messages.phoneNumber }}</div>
+                            {% endif %}
+                            <input type="hidden" name="object" value="Học Viên">
+                            <input class="form-control mt-3 shadow-sm border-01" name="password" type="password" placeholder="Mật Khẩu" required>
+                            {% if error_messages.password %}
+                                <div class="text-danger text-start">{{ error_messages.password }}</div>
+                            {% endif %}
+                            <input class="form-control mt-3 shadow-sm border-01" name="confirmPassword" type="password" placeholder="Xác Nhận Mật Khẩu" required>
+                            {% if error_messages.confirmPassword %}
+                                <div class="text-danger text-start">{{ error_messages.confirmPassword }}</div>
+                            {% endif %}
                         </div>
-                        
-                        <div class="d-grid gap-2 col-10 mx-auto">
-                            <button class="btn btn-primary title-home alert-link" type="submit" style="background-color: #FF4D4D !important;">Đăng Ký</button>
+            
+                        <div class="d-grid gap-2 col-10 mx-auto mt-3">
+                            <button class="btn btn-primary alert-link" type="submit" style="background-color: #2C9F98 !important;">Đăng Ký</button>
                         </div>
+            
+                        <p class="font-size06 color-04 mt-3 text-center">
+                            Đã có tài khoản?
+                            <a href="login" class="alert-link no-underline color01"> Đăng nhập</a>
+                        </p>
                     </form>
-                    <p class="font-size04">
-                        Đã có tài khoản?
-                        <a href="/login/" class="alert-link no-underline color01"> Đăng nhập</a>
-                    </p>
                 </div>
-            </div> -->
+            </div>
         </header>
+
+        <script>
+            (function () {
+                'use strict'
+                var forms = document.querySelectorAll('.needs-validation')
+                Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+            
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+            })()
+        </script>
+        
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>   
     </div>

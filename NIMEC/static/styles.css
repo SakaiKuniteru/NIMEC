@@ -84,3 +84,7 @@ body {
 .justify{
     text-align: justify;
 }
+
+.border-01{
+    border: 1.5px solid grey;
+}

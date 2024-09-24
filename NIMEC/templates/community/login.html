@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static  %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'register.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styless.css' %}">
+        <link rel="icon" href="{% static 'images/logo.jpg' %}">
+        <title>Đăng Ký</title>
+    
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-body-tertiary"  style="margin-top: 0; padding-top: 0;">
+                <div class="container-fluid custom-02" style="height: 55px;">
+                    <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+        
+                    <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
+                        <div class="ms-auto">
+                            <button type="button" class="btn btn-outline-primary custom-01">
+                                <a href="register" class="alert-link no-underline">Đăng Ký</a>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                <div class="col-md-3 custom-bg-color1 border01 text-center" style="width: 40%; background-color: #FFFFFF !important; border: 2px solid black;">
+                    <form method="POST" action="{% url 'login' %}" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        <div class="text-center">
+                            <br><br>
+                            <span class="fw-semibold text-align-center font-size07" style="color: #00BFFF !important;">Chào mừng bạn trở lại</span>
+                            <p class="color-04 fw-medium text-align-center font-size06">Vui lòng nhập thông tin của bạn</p>
+                            <br>
+                        </div>
+            
+                        {% if messages %}
+                            <div class="alert alert-danger">
+                                {% for message in messages %}
+                                    {{ message }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+            
+                        <div class="container">
+                            <input class="form-control mb-3 shadow-sm border-01" name="email" type="email" placeholder="Email" required value="{{ email|default:'' }}">
+                            <input class="form-control mb-3 shadow-sm border-01" name="password" type="password" placeholder="Mật Khẩu" required>
+                        </div>
+            
+                        <div class="container text-end font-size06 mb-1">
+                            <a href="/#/" class="alert-link no-underline color02" style="color: red;">Quên mật khẩu?</a>
+                        </div>
+                        
+                        <div class="d-grid gap-2 col-10 mx-auto">
+                            <button class="btn btn-primary alert-link" type="submit" style="background-color: #00BFFF !important;">Đăng Nhập</button>
+                        </div>
+                        
+                        <p class="font-size06 color-04 mt-3 text-center">
+                            Bạn không có tài khoản?
+                            <a href="register" class="alert-link no-underline color01" style="color: green !important;"> Đăng Ký</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </header>
+
+        <script>
+            (function () {
+                'use strict'
+                var forms = document.querySelectorAll('.needs-validation')
+                Array.prototype.slice.call(forms)
+                    .forEach(function (form) {
+                        form.addEventListener('submit', function (event) {
+                            if (!form.checkValidity()) {
+                                event.preventDefault()
+                                event.stopPropagation()
+                            }
+            
+                            form.classList.add('was-validated')
+                        }, false)
+                    })
+            })()
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>   
+    </body>
+</html>

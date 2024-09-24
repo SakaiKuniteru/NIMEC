@@ -3,19 +3,6 @@ body {
     margin: 0; 
 }
 
-header {
-    background-image: url('background.png');
-    background-size: cover;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-}
-
 .log-home{
     background-color: #2320D4;
 }
@@ -25,14 +12,14 @@ header {
 }
 
 .title-home{
-    color: #fff !important;
+    color: blue !important;
 
 }
 
 .custom-bg-color1{
-    background-color: #474747 !important;
+    background-color: #FFFFFF !important;
     font-size: 700;
-    color: #fff;
+    color: #FFFFFF;
 }
 
 .font-size03{
@@ -45,6 +32,10 @@ header {
 
 .font-size06{
     font-size: 14px !important;
+}
+
+.font-size07{
+    font-size: 25px;
 }
 
 .color01{

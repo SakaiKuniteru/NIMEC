@@ -15,17 +15,27 @@
         <title>Giới Thiệu Viện</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary"  style="margin-top: 0; padding-top: 0;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin-top: 0; padding-top: 0;">
         <div class="container-fluid custom-02" style="height: 55px;">
             <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-
+    
             <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
                 <div class="ms-auto">
-                    <button type="button" class="btn btn-outline-primary me-2 custom-01">Đăng ký</button>
-                    <button type="button" class="btn btn-outline-primary custom-01">Đăng nhập</button>
+                    {% if user.is_authenticated %}
+                        <button type="button" class="btn btn-outline-primary custom-01">
+                            <a href="{% url 'logout' %}" class="alert-link no-underline">Đăng xuất</a>
+                        </button>
+                    {% else %}
+                        <button type="button" class="btn btn-outline-primary custom-01">
+                            <a href="{% url 'register' %}" class="alert-link no-underline">Đăng Ký</a>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary custom-01">
+                            <a href="{% url 'login' %}" class="alert-link no-underline">Đăng Nhập</a>
+                        </button>
+                    {% endif %}
                 </div>
             </div>
         </div>
