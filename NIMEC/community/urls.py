@@ -15,5 +15,7 @@ urlpatterns = [
     path('administrative', views.administrative, name = 'administrative'),
     path('finance_accounting', views.finance_accounting, name = 'finance_accountinge'),
     path('scientific_management', views.scientific_management, name = 'scientific_management'),
-    path('tranning', views.tranning, name = 'tranning'),
+    path('medical_equipment', views.medical_equipment, name = 'medical_equipment'),
+    path('quality_assessment', views.quality_assessment, name = 'quality_assessment'),
+    path('mmanufacturing_warranty', views.manufacturing_warranty, name = 'manufacturing_warranty'),
 ]

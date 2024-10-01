@@ -127,5 +127,11 @@ def finance_accounting(request):
 def scientific_management(request):
     return render(request, 'community/introduction/structure/scientific_management.html')
 
-def tranning(request):
-    return render(request, 'community/tranning.html')
+def medical_equipment(request):
+    return render(request, 'community/introduction/structure/medical_equipment.html')
+
+def quality_assessment(request):
+    return render(request, 'community/introduction/structure/quality_assessment.html')
+
+def manufacturing_warranty(request):
+    return render(request, 'community/introduction/structure/manufacturing_warranty.html')
