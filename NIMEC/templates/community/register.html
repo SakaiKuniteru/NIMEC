@@ -28,7 +28,7 @@
                     <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
                         <div class="ms-auto">
                             <button type="button" class="btn btn-outline-primary custom-01">
-                                <a href="login" class="alert-link no-underline">Đăng Nhập</a>
+                                <a href="{% url 'login' %}" class="alert-link no-underline">Đăng Nhập</a>
                             </button>
                         </div>
                     </div>
@@ -80,7 +80,7 @@
             
                         <p class="font-size06 color-04 mt-3 text-center">
                             Đã có tài khoản?
-                            <a href="login" class="alert-link no-underline color01"> Đăng nhập</a>
+                            <a href="{% url 'login' %}" class="alert-link no-underline color01"> Đăng nhập</a>
                         </p>
                     </form>
                 </div>

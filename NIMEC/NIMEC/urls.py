@@ -22,5 +22,7 @@ urlpatterns = [
     path('', include('community.urls')),
     path('', include('tranning.urls')),
     path('', include('news.urls')),
-    # path('', include('admin_nimec.urls')),
+    path('', include('admin_nimec.urls')),
+    path('', include('library.urls')),
+
 ]

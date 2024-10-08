@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     "admin_nimec",
     "tranning",
     "news",
-    'ckeditor'
+    "ckeditor",
+    "library",
 ]
 
 MIDDLEWARE = [

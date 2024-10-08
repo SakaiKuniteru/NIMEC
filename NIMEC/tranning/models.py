@@ -5,7 +5,7 @@ class Tranning(models.Model):
     course_code = models.CharField(max_length=100)  # Mã khóa học
     course_duration = models.CharField(max_length=100)  # Thời lượng khóa học
     schedule = models.DateField()  # Lịch học
-    tuition_fee = models.DecimalField(max_digits=10, decimal_places=2)  # Học phí
+    tuition_fee = models.DecimalField(max_digits=15, decimal_places=2)  # Học phí
     target_audience = models.CharField(max_length=255)  # Đối tượng hướng tới
     link = models.CharField(max_length=255)
     image_tranning = models.ImageField(upload_to='training_images/')  # Ảnh liên quan đến khóa học

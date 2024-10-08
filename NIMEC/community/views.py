@@ -3,9 +3,9 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from .forms import CommunityModels
 from django.contrib.auth import authenticate, login, logout
-
-def home(request):
-    return render(request, 'community/home.html')
+from tranning.models import Tranning
+from news.models import News
+from library.models import Book
 
 def register(request):
     if request.method == 'POST':
@@ -101,7 +101,18 @@ def signout(request):
     return redirect('/')
 
 def homepage(request):
-    return render(request, 'community/homepage.html')
+    trannings = Tranning.objects.all()
+    librarys = Book.objects.all()
+    news_list = News.objects.all().order_by('-updated_at')
+    for news in news_list:
+        images = news.contents.filter(image__isnull=False).first()
+        if images:
+            news.has_image = True
+            news.first_image = images.image.first().image.url if images.image.exists() else None
+        else:
+            news.has_image = False
+            news.first_image = None
+    return render(request, 'community/homepage.html', {'trannings': trannings, 'news_list': news_list, 'librarys' : librarys})
 
 def functions_duties(request):
     return render(request, 'community/introduction/functions_duties.html')

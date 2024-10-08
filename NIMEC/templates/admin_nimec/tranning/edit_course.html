@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static  %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styless.css' %}">
+        <link rel="icon" href="{% static 'images/logo.jpg' %}">
+        <title>Trang Chủ</title>
+    </head>
+    <body>
+        <nav class="navbar" style="background-color: #97bdba !important; height: 50px;">
+            <a class="navbar-brand font-weight-bold ms-3" style="color: white; font-size: 1.25rem;">NIMEC</a>
+            <button type="button" class="btn btn-outline-primary custom-01 me-3" style="padding: 0.25rem 0.5rem;">
+                <a href="#" class="alert-link no-underline" style="font-size: 0.875rem;">Đăng xuất</a>
+            </button>
+        </nav>
+    
+        <section>
+            <div style="border-top: 1.5px solid black;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <nav class="col-md-2 bg-white sidebar collapse d-md-block" id="sidebarMenu" style="min-height: 100vh; border-right: 1.5px solid black;">
+                            <ul class="nav flex-column mt-4">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'user_list' %}"><h5>User</h5></a>
+                                </li>
+                                <li class="nav-item mt-3">
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'course_list' %}"><h5>Tranning</h5></a>
+                                </li>
+                                <li class="nav-item mt-3">
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'newss_list' %}"><h5>News</h5></a>
+                                </li>
+                                <li class="nav-item mt-3">
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'book_list' %}"><h5>Library</h5></a>
+                                </li>
+                            </ul>
+                        </nav>
+        
+                        <div class="col-md-10" style="height: 100vh; overflow-y: auto;">
+                            <nav class="navbar navbar-light bg-light d-md-none">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </nav>
+        
+                            <div class="p-4">
+                                <div class="container bg-white shadow p-4 rounded-3">
+                                    <h2 class="text-center text-uppercase mb-4" style="color: #2C9F98;">Thêm khóa học</h2>
+                                    <form method="post" enctype="multipart/form-data" action="" class="needs-validation" novalidate id="courseForm">
+                                        {% csrf_token %}
+                                        <div class="mb-3">
+                                            <label for="courseName" class="form-label fw-bold">Tên Khóa học</label>
+                                            <input type="text" class="form-control" id="courseName" placeholder="Nhập tên khóa học" name="course_name" value="{{ course.course_name}}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập tên khóa học.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="courseCode" class="form-label fw-bold">Mã Khóa học</label>
+                                            <input type="text" class="form-control" id="courseCode" placeholder="Nhập mã khóa học" name="course_code" value="{{course.course_code}}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập mã khóa học.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="courseDuration" class="form-label fw-bold">Thời lượng Khóa học</label>
+                                            <input type="text" class="form-control" id="courseDuration" placeholder="Nhập thời lượng khóa học" name="course_duration" value="{{course.course_duration}}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập thời lượng khóa học.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="schedule" class="form-label fw-bold">Lịch học</label>
+                                            {{form.schedule}}
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập lịch học.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="tuitionFee" class="form-label fw-bold">Học phí</label>
+                                            <input type="text" class="form-control" id="tuitionFee" placeholder="Nhập học phí" name="tuition_fee" value="{{course.tuition_fee}}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập học phí.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="targetAudience" class="form-label fw-bold">Đối tượng học</label>
+                                            <input type="text" class="form-control" id="targetAudience" placeholder="Nhập đối tượng học" name="target_audience" value="{{course.target_audience}}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập đối tượng học.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="linkZalo" class="form-label fw-bold">Link Zalo khóa học</label>
+                                            <input type="text" class="form-control" id="linkZalo" placeholder="Nhập link Zalo khóa học" name="link" value="{{course.link}}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập link Zalo khóa học.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="imageTranning" class="form-label fw-bold">Hình ảnh khóa học</label><br>
+                                            <img id="tranningPreview" src="{{ course.image_tranning.url }}" class="img-thumbnail mb-3" alt="tranning Image" width="300px" height="150">
+                                            {{ form.image_tranning }}
+                                            <div class="invalid-feedback">
+                                                Vui lòng chọn hình ảnh khóa học.
+                                            </div>
+                                        </div>
+
+                                        <h4 class="fw-bold mt-4">Giảng viên</h4>
+                                        <div class="row mb-3">
+                                             <div class="col-md-4 text-center">
+                                                <img id="lecturerPreview" src="{{ course.image_lecturer.url }}" class="img-thumbnail mb-3" alt="Lecturer Image" width="75%" height="150">
+                                                {{ form.image_lecturer }}
+                                                <div class="invalid-feedback">
+                                                    Vui lòng chọn hình ảnh giảng viên.
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-8">
+                                                <div class="mb-3">
+                                                    <label for="lecturerName" class="form-label fw-bold">Họ và Tên</label>
+                                                    <input type="text" class="form-control" id="lecturerName" placeholder="Nhập tên giảng viên" name="full_name" value="{{course.full_name}}" required>
+                                                    <div class="invalid-feedback">
+                                                        Vui lòng nhập tên giảng viên.
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3">
+                                                    <label for="lecturerMajor" class="form-label fw-bold">Chuyên Ngành</label>
+                                                    <input type="text" class="form-control" id="lecturerMajor" placeholder="Nhập chuyên ngành" name="major" value="{{course.major}}" required>
+                                                    <div class="invalid-feedback">
+                                                        Vui lòng nhập chuyên ngành.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="courseDescription" class="form-label fw-bold">Mô tả chi tiết (Kinh nghiệm, cam kết...)</label>
+                                            <textarea class="form-control" id="courseDescription" rows="5" placeholder="Mô tả chi tiết" name="course_description" required>{{course.course_description}}</textarea>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập mô tả chi tiết.
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="detailedDescription" class="form-label fw-bold">Mô tả khóa học</label>
+                                            <textarea class="form-control" id="detailedDescription" rows="5" placeholder="Nhập mô tả khóa học" name="detailed_description" required>{{course.detailed_description}}</textarea>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập mô tả khóa học.
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="text-center">
+                                            <button class="btn btn-primary alert-link w-50" type="submit" style="background-color: #2C9F98;">Thêm khóa học</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            document.getElementById('lecturerPreview').addEventListener('click', function() {
+                document.getElementById('imageLecturer').click();
+            });
+    
+            document.getElementById('id_image_lecturer').addEventListener('change', function(event) {
+                var output = document.getElementById('lecturerPreview');
+                var file = event.target.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        output.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+    
+            document.getElementById('tranningPreview').addEventListener('click', function() {
+                document.getElementById('imagetranning').click();
+            });
+    
+            document.getElementById('id_image_tranning').addEventListener('change', function(event) {
+                var output = document.getElementById('tranningPreview');
+                var file = event.target.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        output.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        
+            // Xử lý kiểm tra validation khi submit form
+            (function () {
+                'use strict'
+                var forms = document.querySelectorAll('.needs-validation')
+                Array.prototype.slice.call(forms).forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            })();
+        </script>
+    </body>
+</html>

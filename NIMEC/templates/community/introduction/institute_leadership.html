@@ -13,130 +13,128 @@
         <link rel="stylesheet" href="{% static 'styless.css' %}">
         <link rel="icon" href="{% static 'images/logo.jpg' %}">
         <title>Đảng Ủy - Lãnh Đạo Viện</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin-top: 0; padding-top: 0;">
-        <div class="container-fluid custom-02" style="height: 55px;">
-            <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    </head>
     
-            <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
-                <div class="ms-auto">
-                    {% if user.is_authenticated %}
-                        <button type="button" class="btn btn-outline-primary custom-01">
-                            <a href="{% url 'logout' %}" class="alert-link no-underline">Đăng xuất</a>
-                        </button>
-                    {% else %}
-                        <button type="button" class="btn btn-outline-primary custom-01">
-                            <a href="{% url 'register' %}" class="alert-link no-underline">Đăng Ký</a>
-                        </button>
-                        <button type="button" class="btn btn-outline-primary custom-01">
-                            <a href="{% url 'login' %}" class="alert-link no-underline">Đăng Nhập</a>
-                        </button>
-                    {% endif %}
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #2C9F98 !important; margin-top: 0; padding-top: 0;">
+            <div class="container-fluid " style=" height: 50px;">
+                <a class="navbar-brand color-01 ms-4" href="#">NIMEC</a>
+                {% if user.is_authenticated %}
+                <div class="nav-item">
+                    <button type="button" class="btn btn-outline-primary custom-01">
+                        <a href="{% url 'logout' %}" class="alert-link no-underline">Đăng xuất</a>
+                    </button>
                 </div>
-            </div>
-        </div>
-    </nav>
-
-    <header>
-        <div class="container  position-relative">
-            <img src=" {% static 'images/slide/slide.jpg' %}" class="d-block w-100" alt="First slide" width="800" height="200">
-            <div class="carousel-caption d-flex justify-content-center align-items-center text-center">
-                <div>
-                    <h3 class="font-weight04">VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ</h3>
-                    <h1 class="font-weight04">TRUNG TÂM ĐÀO TẠO</h1>
+                {% else %}
+                <div class="nav-item">
+                    <button type="button" class="btn btn-outline-primary custom-01">
+                        <a href="{% url 'register' %}" class="alert-link no-underline">Đăng Ký</a>
+                    </button>
+    
+                    <button type="button" class="btn btn-outline-primary custom-01">
+                        <a href="{% url 'login' %}" class="alert-link no-underline">Đăng Nhập</a>
+                    </button>
                 </div>
+                {% endif %}
             </div>
-        </div>
-        <div class="container text-center color-03 mt-2" style="padding: 8px;">
-            <div class="row row-cols-4 font-weight03 fs-5">
-                <div class="col custom-border d-flex justify-content-center align-items-center">
-                    <div class="dropdown">
-                        <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <div class="font-weight03 fs-5">Giới Thiệu</div>
-                            
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="institute_introduction">Giới Thiệu Viện</a></li>
-                          <li><a class="dropdown-item" href="functions_duties">Chức năng & Nhiệm vụ của Viện</a></li>
-                          <li><a class="dropdown-item" href="institute_leadership">Đảng ủy - Lãnh đạo Viện</a></li>
-                          <li><a class="dropdown-item" href="organizational_structure">Cơ cấu Tổ chức Viện</a></li>
-                        </ul>
+        </nav>
+    
+        <header>
+            <div class="container  position-relative">
+                <img src=" {% static 'images/slide/backgrounds.jpg' %}" class="d-block w-100" alt="First slide" width="800" height="300">
+                <div class="carousel-caption d-flex justify-content-center align-items-center text-center">
+                    <div>
+                        <h4 class="font-weight04">VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ</h4>
+                        <h3 class="font-weight04">TRUNG TÂM ĐÀO TẠO</h3>
                     </div>
                 </div>
-                <div class="col custom-border d-flex justify-content-center align-items-center">
-                    <a href="tranning" class="text-decoration-none color-04">
-                        Đào Tạo
-                    </a>
-                </div>
-                <div class="col custom-border d-flex justify-content-center align-items-center">
-                    <a href="news_list" class="text-decoration-none color-04">
-                        Tin Tức
-                    </a>
-                </div>
-                <div class="col custom-border d-flex justify-content-center align-items-center">
-                    <a href="#" class="text-decoration-none color-04">
-                        Thư Viện
-                    </a>
+            </div>
+            <div class="container text-center color-03 mt-2" style="padding: 8px;">
+                <div class="row row-cols-4 font-weight03 fs-5">
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="font-weight03 fs-5">Giới Thiệu</div>
+                                
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="{% url 'institute_introduction' %}">Giới Thiệu Viện</a></li>
+                              <li><a class="dropdown-item" href="{% url 'functions_duties' %}">Chức năng & Nhiệm vụ của Viện</a></li>
+                              <li><a class="dropdown-item" href="{% url 'institute_leadership' %}">Đảng ủy - Lãnh đạo Viện</a></li>
+                              <li><a class="dropdown-item" href="{% url 'organizational_structure' %}">Cơ cấu Tổ chức Viện</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="{% url 'tranning' %}" class="text-decoration-none color-04">
+                            Đào Tạo
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="{% url 'news_list' %}" class="text-decoration-none color-04">
+                            Tin Tức
+                        </a>
+                    </div>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <a href="{% url 'library' %}" class="text-decoration-none color-04">
+                            Thư Viện
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
+        </header>
 
-    <section>
-        <div class="container">
-            <div class="text-center mb-5">
-                <div class=" d-inline-block font-weight03 font-size01 color-02 rectangle-02 mt-3">
-                    ĐẢNG ỦY - LÃNH ĐẠO VIỆN
-                </div>
-            </div>
-            <p class="color-02 font-size01 font-weight01">Đảng Ủy, Lãnh Đạo Viện Trang thiết bị và Công trình Y tế</p>
-            <div class="text-align-center font-size03 font-weight02">
-                <p>Đảng ủy Viện Trang thiết bị và Công trình y tế Nhiệm kỳ 2020-2025</p>
-                <p>1. Đồng chí Lê Thanh Hải - Bí Thư Đảng ủy</p>
-                <p>2. Đồng chí Chu Hồng Thắng - Phó Bí thư Đảng ủy</p>
-                <p>3. Đồng chí Hoàng Văn Cường - Thường trực Đảng ủy</p>
-                <p>4. Đồng chí  Trịnh Thị Mai Hằng - Đảng ủy viên</p>
-                <p>5. Đồng chí  Hà Quang Thanh - Đảng ủy viên</p>
-                <br><br>
-                <p>Ban Lãnh đạo Viện Trang thiết bị và Công trình y tế </p>
-                <img class="img-fluid" src="{% static 'images/leadership/leader.jpg' %}">
-                <p class="font-weight02 font-size03">Phó viện trưởng phụ trách Viện: ThS <span class="font-weight01">Chu Hồng Thắng</span> </p> 
-            </div>
-
-        </div>
-    </section>
-
-    <footer >
-        <div class="mt-3" style="background-color: lightblue;">
-            <br>
-            <div class="text-align-center" >
-                <h4>CỔNG THÔNG TIN ĐIỆN TỬ VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ - BỘ Y TẾ</h4>
-                <h6>Trụ sở chính: Số 40 Phương Mai - Đống Đa - Hà Nội</h6>
-            </div>
-
+        <section>
             <div class="container">
-                <div class="row">
-                    <div class="col-6" style="text-align: right;">
-                        <h6>Website: <a href="http://www.nimec.gov.vn">http://www.nimec.gov.vn</a> </h6>
-                        <h6>ĐT: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                <div class="text-center mb-5">
+                    <div class=" d-inline-block font-weight03 font-size01 color-02 rectangle-02 mt-3">
+                        ĐẢNG ỦY - LÃNH ĐẠO VIỆN
                     </div>
-                    <div class="col-6">
-                        <h6>Email: <a href="mailto:nimec40pm@moh.gov.vn">nimec40pm@moh.gov.vn</a></h6>
-                        <h6>Fax: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                </div>
+                <p class="color-02 font-size01 font-weight01">Đảng Ủy, Lãnh Đạo Viện Trang thiết bị và Công trình Y tế</p>
+                <div class="text-align-center font-size03 font-weight02">
+                    <p>Đảng ủy Viện Trang thiết bị và Công trình y tế Nhiệm kỳ 2020-2025</p>
+                    <p>1. Đồng chí Lê Thanh Hải - Bí Thư Đảng ủy</p>
+                    <p>2. Đồng chí Chu Hồng Thắng - Phó Bí thư Đảng ủy</p>
+                    <p>3. Đồng chí Hoàng Văn Cường - Thường trực Đảng ủy</p>
+                    <p>4. Đồng chí  Trịnh Thị Mai Hằng - Đảng ủy viên</p>
+                    <p>5. Đồng chí  Hà Quang Thanh - Đảng ủy viên</p>
+                    <br><br>
+                    <p>Ban Lãnh đạo Viện Trang thiết bị và Công trình y tế </p>
+                    <img class="img-fluid" src="{% static 'images/leadership/leader.jpg' %}">
+                    <p class="font-weight02 font-size03">Phó viện trưởng phụ trách Viện: ThS <span class="font-weight01">Chu Hồng Thắng</span> </p> 
+                </div>
+
+            </div>
+        </section>
+
+        <footer >
+            <div class="mt-3" style="background-color: lightblue;">
+                <br>
+                <div class="text-align-center" >
+                    <h4>CỔNG THÔNG TIN ĐIỆN TỬ VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ - BỘ Y TẾ</h4>
+                    <h6>Trụ sở chính: Số 40 Phương Mai - Đống Đa - Hà Nội</h6>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6" style="text-align: right;">
+                            <h6>Website: <a href="http://www.nimec.gov.vn">http://www.nimec.gov.vn</a> </h6>
+                            <h6>ĐT: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                        <div class="col-6">
+                            <h6>Email: <a href="mailto:nimec40pm@moh.gov.vn">nimec40pm@moh.gov.vn</a></h6>
+                            <h6>Fax: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        
-        <div style="background-color: #2C9F98;">
-            <br>
-        </div>
-    </footer>
+            
+            <div style="background-color: #2C9F98;">
+                <br>
+            </div>
+        </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
 </html>

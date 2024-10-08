@@ -1,0 +1,17 @@
+.btn-custom {
+    background-color: #ff007f;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.btn-custom:hover {
+    background-color: #e60073;
+}
+
+.input-group-text {
+    background-color: white;
+    border-left: none;
+    border-radius: 0 20px 20px 0;
+}

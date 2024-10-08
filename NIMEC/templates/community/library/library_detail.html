@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static  %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styless.css' %}">
+        <link rel="icon" href="{% static 'images/logo.jpg' %}">
+        <title>Đào Tạo</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin-top: 0; padding-top: 0;">
+            <div class="container-fluid custom-02" style="height: 55px;">
+                <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
+                    <div class="ms-auto">
+                        {% if user.is_authenticated %}
+                            <button type="button" class="btn btn-outline-primary custom-01">
+                                <a href="{% url 'logout' %}" class="alert-link no-underline">Đăng xuất</a>
+                            </button>
+                        {% else %}
+                            <button type="button" class="btn btn-outline-primary custom-01">
+                                <a href="{% url 'register' %}" class="alert-link no-underline">Đăng Ký</a>
+                            </button>
+                            <button type="button" class="btn btn-outline-primary custom-01">
+                                <a href="{% url 'login' %}" class="alert-link no-underline">Đăng Nhập</a>
+                            </button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header>
+            <div class="container  position-relative">
+                <img src=" {% static 'images/slide/slide.jpg' %}" class="d-block w-100" alt="First slide" width="800" height="200">
+                <div class="carousel-caption d-flex justify-content-center align-items-center text-center">
+                    <div>
+                        <h3 class="font-weight04">VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ</h3>
+                        <h1 class="font-weight04">TRUNG TÂM ĐÀO TẠO</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="container text-center color-03 mt-2" style="padding: 8px;">
+                <div class="row row-cols-4 font-weight03 fs-5">
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <div class="dropdown">
+                            <button class="btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <div class="font-weight03 fs-5">Giới Thiệu</div>
+                                
+                            </button>
+                            <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href=" {% url 'institute_introduction' %}">Giới Thiệu Viện</a></li>
+                            <li><a class="dropdown-item" href=" {% url 'functions_duties' %}">Chức năng & Nhiệm vụ của Viện</a></li>
+                            <li><a class="dropdown-item" href=" {% url 'institute_leadership' %}">Đảng ủy - Lãnh đạo Viện</a></li>
+                            <li><a class="dropdown-item" href=" {% url 'organizational_structure' %}">Cơ cấu Tổ chức Viện</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="{% url 'tranning' %}" class="text-decoration-none color-04">
+                            Đào Tạo
+                        </a>
+                    </div>
+                    <div class="col custom-border d-flex justify-content-center align-items-center">
+                        <a href="{% url 'news_list' %}" class="text-decoration-none color-04">
+                            Tin Tức
+                        </a>
+                    </div>
+                    <div class="col d-flex justify-content-center align-items-center">
+                        <a href="#" class="text-decoration-none color-04">
+                            Thư Viện
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section>
+            
+            <div class="container">
+                <h1 class="text-center mt-3 color-02 fw-bold">THÔNG TIN SÁCH</h1>
+                <h2 class="text-center mb-5 color-02 fw-bold">Sách Giáo Khoa</h2>
+
+                <div class="row g-0">
+                    <div class="col-md-4 d-flex">
+                        <a href="#" class="d-block">
+                            <svg class="bd-placeholder-img img-fluid ms-2" width="75%" height="300px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image" preserveAspectRatio="xMidYMid slice" focusable="false">
+                                <title>Placeholder</title>
+                                <rect width="100%" height="100%" fill="#868e96"></rect>
+                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center justify-content-center">
+                        <div class="card-body d-flex flex-column" style="height: 210px;">
+                            <a href="#" class="text-decoration-none text-dark">
+                                <h4>Tác giả: Bộ Giáo dục</h4>
+                                <h4>Ngày phát hành: 20/10/2010</h4>
+                                <h4>Giá bán: 10.000.000</h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-5 mb-5">
+                    <h5>Mô tả: text text text text text text text text text text text text text </h5>
+                </div>
+                
+            </div>
+        </section>
+
+        <footer >
+            <div class="mt-3" style="background-color: lightblue;">
+                <br>
+                <div class="text-align-center" >
+                    <h4>CỔNG THÔNG TIN ĐIỆN TỬ VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ - BỘ Y TẾ</h4>
+                    <h6>Trụ sở chính: Số 40 Phương Mai - Đống Đa - Hà Nội</h6>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6" style="text-align: right;">
+                            <h6>Website: <a href="http://www.nimec.gov.vn">http://www.nimec.gov.vn</a> </h6>
+                            <h6>ĐT: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                        <div class="col-6">
+                            <h6>Email: <a href="mailto:nimec40pm@moh.gov.vn">nimec40pm@moh.gov.vn</a></h6>
+                            <h6>Fax: <a href="tel:+8485283065">(84-04) 3852 3065</a></h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background-color: #2C9F98;">
+                <br>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

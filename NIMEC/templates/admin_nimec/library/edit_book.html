@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static  %}
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'> 
+        <link rel="stylesheet" href="{% static 'bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
+        <link rel="stylesheet" href="{% static 'styless.css' %}">
+        <link rel="icon" href="{% static 'images/logo.jpg' %}">
+        <title>Trang Chủ</title>
+    </head>
+    <body>
+        <nav class="navbar" style="background-color: #97bdba !important; height: 50px;">
+            <a class="navbar-brand font-weight-bold ms-3" style="color: white; font-size: 1.25rem;">NIMEC</a>
+            <button type="button" class="btn btn-outline-primary custom-01 me-3" style="padding: 0.25rem 0.5rem;">
+                <a href="#" class="alert-link no-underline" style="font-size: 0.875rem;">Đăng xuất</a>
+            </button>
+        </nav>
+    
+        <section>
+            <div style="border-top: 1.5px solid black;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <nav class="col-md-2 bg-white sidebar collapse d-md-block" id="sidebarMenu" style="min-height: 100vh; border-right: 1.5px solid black;">
+                            <ul class="nav flex-column mt-4">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'user_list' %}"><h5>User</h5></a>
+                                </li>
+                                <li class="nav-item mt-3">
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'course_list' %}"><h5>Tranning</h5></a>
+                                </li>
+                                <li class="nav-item mt-3">
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'newss_list' %}"><h5>News</h5></a>
+                                </li>
+                                <li class="nav-item mt-3">
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'book_list' %}"><h5>Library</h5></a>
+                                </li>
+                            </ul>
+                        </nav>
+        
+                        <div class="col-md-10" style="height: 100vh; overflow-y: auto;">
+                            <nav class="navbar navbar-light bg-light d-md-none">
+                                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                            </nav>
+        
+                            <div class="p-4">
+                                <div class="container bg-white shadow p-4 rounded-3">
+                                    <h2 class="text-center text-uppercase mb-4" style="color: #2C9F98;">Chỉnh sửa sách</h2>
+                                    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                                        {% csrf_token %}
+                                        
+                                        <div class="mb-3">
+                                            <label for="book_name" class="form-label fw-bold">Tên Sách</label>
+                                            <input type="text" class="form-control" id="book_name" placeholder="Nhập tên sách" name="book_name" value="{{ book.book_name }}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập tên sách!
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mb-3 h-100">
+                                            <div class="col-md-4 text-center">
+                                                <label for="image_book" class="form-label fw-bold">Ảnh bìa sách</label>
+                                                <img id="bookPreview" src="{{ book.image_book.url }}" class="img-thumbnail mb-3" alt="Book Image" width="75%" height="150" style="cursor: pointer;">
+                                                {{ form.image_book }}
+                                                <div class="invalid-feedback">
+                                                    Vui lòng chọn hình ảnh sách!
+                                                </div>
+                                            </div>
+        
+                                            <div class="col-md-8 d-flex align-items-center justify-content-center">
+                                                <div class="w-100">
+                                                    <label for="book_description" class="form-label fw-bold">Mô tả sách</label>
+                                                    <textarea class="form-control" id="book_description" rows="8" placeholder="Mô tả sách" name="book_description" required>{{ book.book_description }}</textarea>
+                                                    <div class="invalid-feedback">Vui lòng nhập mô tả chi tiết.</div>
+                                                </div>
+                                            </div>
+                                        </div>
+        
+                                        <div class="mb-3">
+                                            <label for="author" class="form-label fw-bold">Tác giả</label>
+                                            <input type="text" class="form-control" id="author" placeholder="Nhập tên tác giả" name="author" value="{{ book.author }}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập đối tên Tác giả!
+                                            </div>
+                                        </div>
+        
+                                        <div class="mb-3">
+                                            <label for="release_date" class="form-label fw-bold">Ngày phát hành</label>
+                                            <br>
+                                            {{ form.release_date }}
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập ngày phát hành sách!
+                                            </div>
+                                        </div>
+        
+                                        <div class="mb-3">
+                                            <label for="book_price" class="form-label fw-bold">Giá sách</label>
+                                            <input type="number" class="form-control" id="bookPrice" placeholder="Nhập giá bán quyển sách" name="book_price" value="{{ book.book_price }}" required>
+                                            <div class="invalid-feedback">
+                                                Vui lòng nhập giá sách!
+                                            </div>
+                                        </div>
+        
+                                        <div class="text-center">
+                                            <button class="btn btn-primary alert-link w-50" type="submit" style="background-color: #2C9F98;">Lưu thay đổi</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <script>
+            document.getElementById('bookPreview').addEventListener('click', function() {
+                document.getElementById('id_image_book').click();
+            });
+            
+            document.getElementById('id_image_book').addEventListener('change', function(event) {
+                var output = document.getElementById('bookPreview');
+                var file = event.target.files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        output.src = e.target.result;  // Hiển thị ảnh xem trước
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        
+            (function () {
+                'use strict'
+                var forms = document.querySelectorAll('.needs-validation')
+                Array.prototype.slice.call(forms).forEach(function (form) {
+                    form.addEventListener('submit', function (event) {
+                        if (!form.checkValidity()) {
+                            event.preventDefault()
+                            event.stopPropagation()
+                        }
+                        form.classList.add('was-validated')
+                    }, false)
+                })
+            })();
+        </script>
+        
+    </body>
+</html>
