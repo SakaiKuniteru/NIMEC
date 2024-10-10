@@ -15,6 +15,7 @@
         <link rel="icon" href="{% static 'images/logo.jpg' %}">
         <title>Trang Chủ</title>
     </head>
+
     <body>
         <nav class="navbar" style="background-color: #97bdba !important; height: 50px;">
             <a class="navbar-brand font-weight-bold ms-3" style="color: white; font-size: 1.25rem;">NIMEC</a>
@@ -30,16 +31,16 @@
                         <nav class="col-md-2 bg-white sidebar collapse d-md-block" id="sidebarMenu" style="min-height: 100vh; border-right: 1.5px solid black;">
                             <ul class="nav flex-column mt-4">
                                 <li class="nav-item">
-                                    <a class="nav-link text-dark fw-bold" href="user_list"><h5>User</h5></a>
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'user_list' %}"><h5>User</h5></a>
                                 </li>
                                 <li class="nav-item mt-3">
-                                    <a class="nav-link text-dark fw-bold" href="course_list"><h5>Tranning</h5></a>
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'course_list' %}"><h5>Tranning</h5></a>
                                 </li>
                                 <li class="nav-item mt-3">
-                                    <a class="nav-link text-dark fw-bold" href="newss_list"><h5>News</h5></a>
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'newss_list' %}"><h5>News</h5></a>
                                 </li>
                                 <li class="nav-item mt-3">
-                                    <a class="nav-link text-dark fw-bold" href="book_list"><h5>Library</h5></a>
+                                    <a class="nav-link text-dark fw-bold" href="{% url 'book_list' %}"><h5>Library</h5></a>
                                 </li>
                             </ul>
                         </nav>
@@ -59,66 +60,72 @@
                                                 <h3>Thêm người dùng</h3>
                                             </div>
                                             <div class="card-body p-5">
-                                                <form class="row g-3 needs-validation" novalidate action="{% url 'add_user' %}" method="POST" id="userForm">
+                                                <form class="row g-3 needs-validation" action="{% url 'add_user' %}" method="POST" novalidate>
                                                     {% csrf_token %}
-                                                    
                                                     <div class="col-md-6">
-                                                        <label for="last_name" class="form-label">Last Name</label>
-                                                        <input type="text" name="last_name" class="form-control {% if form.last_name.errors %}is-invalid{% endif %}" id="last_name" value="{{ form.last_name.value|default_if_none:'' }}">
-
+                                                        <label for="lastName" class="form-label">Last Name</label>
+                                                        <input name="lastName" type="text" class="form-control mb-0 mt-3 shadow-sm border-01 {% if form.lastName.errors %}is-invalid{% endif %}"  placeholder="Họ" required value="{{ input_data.lastName|default:'' }}">
+                                                        {% if error_messages.lastName %}
+                                                            <div class="text-danger text-start">{{ error_messages.firstName }}</div>
+                                                        {% endif %}
                                                     </div>
         
                                                     <div class="col-md-6">
-                                                        <label for="first_name" class="form-label">First Name</label>
-                                                        <input type="text" name="first_name" class="form-control {% if form.first_name.errors %}is-invalid{% endif %}" id="first_name" value="{{ form.first_name.value|default_if_none:'' }}">
+                                                        <label for="firstName" class="form-label">First Name</label>
+                                                        <input class="form-control mb-0 mt-3 shadow-sm border-01 {% if form.firstName.errors %}is-invalid{% endif %}" name="firstName" type="text" placeholder="Tên" required value="{{ input_data.firstName|default:'' }}">
+                                                        {% if error_messages.firstName %}
+                                                            <div class="text-danger text-start">{{ error_messages.firstName }}</div>
+                                                        {% endif %}
                                                     </div>
         
                                                     <div class="">
                                                         <label for="email" class="form-label">Email</label>
-                                                        <input type="email" name="email" class="form-control {% if form.email.errors %}is-invalid{% endif %}" id="email" value="{{ form.email.value|default_if_none:'' }}">
-
+                                                        <input class="form-control shadow-sm border-01 {% if form.email.errors %}is-invalid{% endif %}" name="email" type="email" placeholder="Email" required value="{{ input_data.email|default:'' }}">
+                                                        {% if error_messages.email %}
+                                                            <div class="text-danger text-start">{{ error_messages.email }}</div>
+                                                        {% endif %}
                                                     </div>
         
                                                     <div class="">
-                                                        <label for="phone_number" class="form-label">Phone Number</label>
-                                                        <input type="tel" name="phone_number" class="form-control {% if form.phone_number.errors %}is-invalid{% endif %}" id="phone_number" value="{{ form.phone_number.value|default_if_none:'' }}">
-                                                        
+                                                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                                                        <input class="form-control mt-3 shadow-sm border-01 {% if form.phoneNumber.errors %}is-invalid{% endif %}" name="phoneNumber" type="tel" placeholder="Số Điện Thoại" required value="{{ input_data.phoneNumber|default:'' }}">
+                                                        {% if error_messages.phoneNumber %}
+                                                            <div class="text-danger text-start">{{ error_messages.phoneNumber }}</div>
+                                                        {% endif %}
                                                     </div>
         
                                                     <div class="">
-                                                        <label for="object" class="form-label">Object</label>
-                                                        <select class="form-select {% if form.object.errors %}is-invalid{% endif %}" name="object" id="object">
+                                                        <label for="object_type" class="form-label">Object</label>
+                                                        <select class="form-select {% if form.object.errors %}is-invalid{% endif %}" name="object_type" id="object_type">
                                                             <option selected disabled value="">Chọn chức năng...</option>
                                                             <option value="học viên" {% if form.object.value == "học viên" %}selected{% endif %}>Học Viên</option>
                                                             <option value="giảng viên" {% if form.object.value == "giảng viên" %}selected{% endif %}>Giảng Viên</option>
                                                         </select>
+                                                        {% if error_messages.object_type %}
+                                                            <div class="text-danger text-start">{{ error_messages.object_type }}</div>
+                                                        {% endif %}
                                                     </div>
-        
+
                                                     <div class="col-md-6">
                                                         <label for="password" class="form-label">Password</label>
-                                                        <input type="password" name="password" class="form-control {% if form.password.errors %}is-invalid{% endif %}" id="password">
-                                                        
+                                                        <input class="form-control mt-3 shadow-sm border-01 {% if form.password.errors %}is-invalid{% endif %}" name="password" type="password" placeholder="Mật Khẩu" required>
+                                                        {% if error_messages.password %}
+                                                            <div class="text-danger text-start">{{ error_messages.password }}</div>
+                                                        {% endif %}
                                                     </div>
         
                                                     <div class="col-md-6">
                                                         <label for="confirm_password" class="form-label">Confirm Password</label>
-                                                        <input type="password" name="confirm_password" class="form-control {% if form.confirm_password.errors %}is-invalid{% endif %}" id="confirm_password">
-                                                        
+                                                        <input class="form-control mt-3 shadow-sm border-01 {% if form.confirm_password.errors %}is-invalid{% endif %}" name="confirmPassword" type="password" placeholder="Xác Nhận Mật Khẩu" required>
+                                                        {% if error_messages.confirmPassword %}
+                                                            <div class="text-danger text-start">{{ error_messages.confirmPassword }}</div>
+                                                        {% endif %}
                                                     </div>
         
                                                     <div class="col-12 text-center">
                                                         <button class="btn btn-primary btn-lg rounded-pill px-5" type="submit">Thêm người dùng</button>
                                                     </div>
                                                 </form>
-        
-                                                <!-- Hiển thị thông báo lỗi hoặc thành công -->
-                                                {% if messages %}
-                                                    <div class="mt-3">
-                                                        {% for message in messages %}
-                                                            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-                                                        {% endfor %}
-                                                    </div>
-                                                {% endif %}
                                             </div>
                                         </div>
                                     </div>
@@ -129,8 +136,7 @@
                 </div>
             </div>
         </section>
-        
-        
+          
         <script>
             document.getElementById('userForm').addEventListener('submit', function(event) {
                 if (this.checkValidity() === false) {
@@ -140,7 +146,6 @@
                 this.classList.add('was-validated');
             }, false);
         </script>
-        
-        
+
     </body>
 </html>

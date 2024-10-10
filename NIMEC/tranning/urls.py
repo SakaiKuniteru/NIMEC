@@ -5,8 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('tranning', views.tranning, name = 'tranning'),
-    path('add_tranning', views.add_tranning, name = 'add_tranning'),
-    path('<int:tranning_id>/', views.tranning_detail, name='tranning_detail'),
+    path('tranning/add_tranning', views.add_tranning, name = 'add_tranning'),
+    path('tranning/<int:tranning_id>/', views.tranning_detail, name='tranning_detail'),
 ]
 
 if settings.DEBUG:

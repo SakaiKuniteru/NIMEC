@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect
 from .models import Tranning
 from datetime import datetime, timedelta
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def tranning(request):
     trannings = Tranning.objects.all()
-    return render(request, 'community/tranning/tranning.html', {'trannings': trannings})
+    current_user = request.user
+    return render(request, 'community/tranning/tranning.html', {
+        'trannings': trannings,
+        'current_user': current_user
+    })
 
 def add_tranning(request):
     if request.method == 'POST':

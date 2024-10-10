@@ -5,8 +5,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     # path('add_news', views.add_news, name = 'add_news'),
-    path('news_list', views.news_list, name = 'news_list'),
-    path('<int:news_id>', views.news_detail, name='news_detail'),
+    path('news/news_list', views.news_list, name = 'news_list'),
+    path('news/<int:news_id>', views.news_detail, name='news_detail'),
 ]
 
 if settings.DEBUG:

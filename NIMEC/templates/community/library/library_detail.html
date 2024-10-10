@@ -16,39 +16,36 @@
         <title>Đào Tạo</title>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin-top: 0; padding-top: 0;">
-            <div class="container-fluid custom-02" style="height: 55px;">
-                <a class="navbar-brand color-01" href="#">Viện trang thiết bị và công trình y tế</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-        
-                <div class="collapse navbar-collapse ms-auto" id="navbarTogglerDemo01">
-                    <div class="ms-auto">
-                        {% if user.is_authenticated %}
-                            <button type="button" class="btn btn-outline-primary custom-01">
-                                <a href="{% url 'logout' %}" class="alert-link no-underline">Đăng xuất</a>
-                            </button>
-                        {% else %}
-                            <button type="button" class="btn btn-outline-primary custom-01">
-                                <a href="{% url 'register' %}" class="alert-link no-underline">Đăng Ký</a>
-                            </button>
-                            <button type="button" class="btn btn-outline-primary custom-01">
-                                <a href="{% url 'login' %}" class="alert-link no-underline">Đăng Nhập</a>
-                            </button>
-                        {% endif %}
-                    </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #2C9F98 !important; margin-top: 0; padding-top: 0;">
+            <div class="container-fluid " style=" height: 50px;">
+                <a class="navbar-brand color-01 ms-4" href="{% url 'homepage' %}">NIMEC</a>
+                {% if user.is_authenticated %}
+                <div class="nav-item">
+                    <button type="button" class="btn btn-outline-primary custom-01">
+                        <a href="{% url 'logout' %}" class="alert-link no-underline">Đăng xuất</a>
+                    </button>
                 </div>
+                {% else %}
+                <div class="nav-item">
+                    <button type="button" class="btn btn-outline-primary custom-01">
+                        <a href="{% url 'register' %}" class="alert-link no-underline">Đăng Ký</a>
+                    </button>
+
+                    <button type="button" class="btn btn-outline-primary custom-01">
+                        <a href="{% url 'login' %}" class="alert-link no-underline">Đăng Nhập</a>
+                    </button>
+                </div>
+                {% endif %}
             </div>
         </nav>
 
         <header>
             <div class="container  position-relative">
-                <img src=" {% static 'images/slide/slide.jpg' %}" class="d-block w-100" alt="First slide" width="800" height="200">
+                <img src=" {% static 'images/slide/backgrounds.jpg' %}" class="d-block w-100" alt="First slide" width="800" height="300">
                 <div class="carousel-caption d-flex justify-content-center align-items-center text-center">
                     <div>
-                        <h3 class="font-weight04">VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ</h3>
-                        <h1 class="font-weight04">TRUNG TÂM ĐÀO TẠO</h1>
+                        <h4 class="font-weight04">VIỆN TRANG THIẾT BỊ VÀ CÔNG TRÌNH Y TẾ</h4>
+                        <h3 class="font-weight04">TRUNG TÂM ĐÀO TẠO</h3>
                     </div>
                 </div>
             </div>
@@ -61,10 +58,10 @@
                                 
                             </button>
                             <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href=" {% url 'institute_introduction' %}">Giới Thiệu Viện</a></li>
-                            <li><a class="dropdown-item" href=" {% url 'functions_duties' %}">Chức năng & Nhiệm vụ của Viện</a></li>
-                            <li><a class="dropdown-item" href=" {% url 'institute_leadership' %}">Đảng ủy - Lãnh đạo Viện</a></li>
-                            <li><a class="dropdown-item" href=" {% url 'organizational_structure' %}">Cơ cấu Tổ chức Viện</a></li>
+                            <li><a class="dropdown-item" href="{% url 'institute_introduction' %}">Giới Thiệu Viện</a></li>
+                            <li><a class="dropdown-item" href="{% url 'functions_duties' %}">Chức năng & Nhiệm vụ của Viện</a></li>
+                            <li><a class="dropdown-item" href="{% url 'institute_leadership' %}">Đảng ủy - Lãnh đạo Viện</a></li>
+                            <li><a class="dropdown-item" href="{% url 'organizational_structure' %}">Cơ cấu Tổ chức Viện</a></li>
                             </ul>
                         </div>
                     </div>
@@ -79,7 +76,7 @@
                         </a>
                     </div>
                     <div class="col d-flex justify-content-center align-items-center">
-                        <a href="#" class="text-decoration-none color-04">
+                        <a href="{% url 'library' %}" class="text-decoration-none color-04">
                             Thư Viện
                         </a>
                     </div>
@@ -88,35 +85,27 @@
         </header>
 
         <section>
-            
             <div class="container">
                 <h1 class="text-center mt-3 color-02 fw-bold">THÔNG TIN SÁCH</h1>
-                <h2 class="text-center mb-5 color-02 fw-bold">Sách Giáo Khoa</h2>
+                <h2 class="text-center mb-5 color-02 fw-bold">Tên Sách: {{library.book_name}}</h2>
 
                 <div class="row g-0">
                     <div class="col-md-4 d-flex">
-                        <a href="#" class="d-block">
-                            <svg class="bd-placeholder-img img-fluid ms-2" width="75%" height="300px" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Image" preserveAspectRatio="xMidYMid slice" focusable="false">
-                                <title>Placeholder</title>
-                                <rect width="100%" height="100%" fill="#868e96"></rect>
-                                <text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text>
-                            </svg>
-                        </a>
+                        <img src="{{ library.image_book.url }}" class="img-thumbnail" alt="Book Image" width="75%" height="300">
                     </div>
+
                     <div class="col-md-8 d-flex align-items-center justify-content-center">
                         <div class="card-body d-flex flex-column" style="height: 210px;">
-                            <a href="#" class="text-decoration-none text-dark">
-                                <h4>Tác giả: Bộ Giáo dục</h4>
-                                <h4>Ngày phát hành: 20/10/2010</h4>
-                                <h4>Giá bán: 10.000.000</h4>
-                            </a>
+                            <h4>Tác giả: {{library.author}}</h4>
+                            <h4>Ngày phát hành: {{library.release_date}}</h4>
+                            <h4>Giá bán: {{library.book_price}}</h4>
                         </div>
                     </div>
                 </div>
+
                 <div class="mt-5 mb-5">
-                    <h5>Mô tả: text text text text text text text text text text text text text </h5>
+                    <h5>Mô tả: {{library.book_description}} </h5>
                 </div>
-                
             </div>
         </section>
 

@@ -75,7 +75,7 @@ def register(request):
         new_user.last_name = lastName
         new_user.save()
 
-        messages.success(request, "Đăng ký thành công.")
+        messages.success(request, "")
         return redirect('login')
 
     return render(request, 'community/register.html')
@@ -89,7 +89,7 @@ def login_views(request):
 
         if user is not None:
             login(request, user)
-            return redirect('homepage')  # Chuyển hướng đến trang chính
+            return redirect('homepage')
         else:
             messages.error(request, "Đăng nhập không thành công. Vui lòng kiểm tra email và mật khẩu.")
             return render(request, 'community/login.html', {'email': email})

@@ -8,6 +8,7 @@ from tranning.forms import TranningForm
 from tranning.models import Tranning
 from library.forms import BookForm
 from library.models import Book
+from django.contrib.auth.models import User
 
 def admin(request):
     return render(request, 'admin_nimec/admin.html')
@@ -18,17 +19,78 @@ def user_list(request):
 
 def add_user(request):
     if request.method == 'POST':
-        form = CommunityForms(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Thêm người dùng thành công.')
-            return redirect('user_list')
-        else:
-            messages.error(request, '')
-    else:
-        form = CommunityForms()
+        firstName = request.POST.get('firstName')
+        lastName = request.POST.get('lastName')
+        email = request.POST.get('email')
+        phoneNumber = request.POST.get('phoneNumber')
+        object_type = request.POST.get('object')
+        password = request.POST.get('password')
+        confirmPassword = request.POST.get('confirmPassword')
 
-    return render(request, 'admin_nimec/user/add_user.html', {'form': form})
+        error_messages = {
+            'firstName': '',
+            'lastName': '',
+            'email': '',
+            'phoneNumber': '',
+            'object_type': '',
+            'password': '',
+            'confirmPassword': ''
+        }
+
+        if not firstName:
+            error_messages['firstName'] = "Họ không được để trống!"
+        if not lastName:
+            error_messages['lastName'] = "Tên không được để trống!"
+        if not email:
+            error_messages['email'] = "Email không được để trống!"
+        else:
+            if CommunityModels.objects.filter(email=email).exists():
+                error_messages['email'] = "Email đã tồn tại!"
+        if not phoneNumber:
+            error_messages['phoneNumber'] = "Số điện thoại không được để trống!"
+        else:
+            if CommunityModels.objects.filter(phone_number=phoneNumber).exists():
+                error_messages['phoneNumber'] = "Số điện thoại đã tồn tại!"
+        if not password:
+            error_messages['password'] = "Mật khẩu không được để trống!"
+        else:
+            if len(password) < 8 or len(password) > 16:
+                if len(password) < 8:
+                    error_messages['password'] = "Mật khẩu tối thiểu 8 ký tự!"
+                elif len(password) > 16:
+                    error_messages['password'] = "Mật khẩu tối đa 16 ký tự!"
+            if password != confirmPassword:
+                error_messages['confirmPassword'] = "Mật khẩu không khớp!"
+        if not object_type:
+            error_messages['object_type'] = "Vui lòng chọn!"
+
+        if any(error_messages.values()):
+            return render(request, 'admin_nimec/user/add_user.html', {
+                'input_data': request.POST,
+                'error_messages': error_messages
+            })
+
+        new_community = CommunityModels(
+            first_name=firstName,
+            last_name=lastName,
+            email=email,
+            phone_number=phoneNumber,
+            object=object_type,
+        )
+        new_community.save()
+
+        new_user = User.objects.create_user(
+            username=email,
+            password=password
+        )
+        new_user.first_name = firstName
+        new_user.last_name = lastName
+        new_user.save()
+
+        messages.success(request, "")
+        return redirect('user_list')
+
+    return render(request, 'admin_nimec/user/add_user.html')
 
 def edit_user(request, user_id):
     user = get_object_or_404(CommunityModels, id=user_id)
@@ -147,7 +209,7 @@ def add_book(request):
         form = BookForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Thêm sách thành công.')
+            messages.success(request, '')
             return redirect('book_list')
         else:
             for field, errors in form.errors.items():
