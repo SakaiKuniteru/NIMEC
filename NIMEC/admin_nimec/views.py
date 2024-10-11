@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from community.models import CommunityModels
-from community.forms import CommunityForms
 from news.models import News, Content, TextStyle
 from news.forms import NewsForm, ContentForm
 from tranning.forms import TranningForm
@@ -9,13 +9,38 @@ from tranning.models import Tranning
 from library.forms import BookForm
 from library.models import Book
 from django.contrib.auth.models import User
+from django.contrib.auth import logout
+from django.core.paginator import Paginator
 
 def admin(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)
+            return redirect('user_list')
+        else:
+            messages.error(request, 'Invalid credentials')
+    
     return render(request, 'admin_nimec/admin.html')
+
+def logout_admin(request):
+    logout(request)
+    return redirect('admin_login')
 
 def user_list(request):
     users = CommunityModels.objects.all()
-    return render(request, 'admin_nimec/user/user_list.html', {'users': users})
+    
+    paginator = Paginator(users, 100)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    start_number = (page_obj.number - 1) * paginator.per_page
+
+    return render(request, 'admin_nimec/user/user_list.html', {'page_obj': page_obj, 'start_number': start_number})
 
 def add_user(request):
     if request.method == 'POST':
@@ -114,7 +139,13 @@ def delete_user(request, user_id):
 
 def course_list(request):
     courses = Tranning.objects.all()
-    return render(request, 'admin_nimec/tranning/course_list.html', {'courses': courses})
+
+    paginator = Paginator(courses, 100)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    start_number = (page_obj.number - 1) * paginator.per_page
+    return render(request, 'admin_nimec/tranning/course_list.html', {'page_obj': page_obj, 'start_number': start_number})
 
 def add_course(request):
     if request.method == 'POST':
@@ -153,19 +184,45 @@ def delete_course(request, course_id):
 
 def newss_list(request):
     news_list = News.objects.all().order_by('-updated_at')
-    return render(request, 'admin_nimec/news/news_list.html', {'news_list': news_list})
+
+    paginator = Paginator(news_list, 100)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    start_number = (page_obj.number - 1) * paginator.per_page
+    return render(request, 'admin_nimec/news/news_list.html', {'page_obj': page_obj, 'start_number': start_number})
 
 def add_news(request):
     if request.method == 'POST':
         news_form = NewsForm(request.POST)
-        
         if news_form.is_valid():
             news = news_form.save()
-            return redirect('newss_list')
+            for i in range(int(request.POST.get('content_count', 0))):
+                content_type = request.POST.get(f'content_type_{i}')
+                text = request.POST.get(f'text_{i}', '')
+                text_color = request.POST.get(f'text_color_{i}', '#000000')
+                
+                content = Content.objects.create(
+                    news=news,
+                    content_type=content_type,
+                    text=text,
+                    text_color=text_color,
+                )
+                
+                # Nếu có ảnh hoặc video
+                if content_type == 'image':
+                    images = request.FILES.getlist(f'image_{i}')
+                    for image in images:
+                        content.image.create(image=image)
+                
+                if content_type == 'video':
+                    video_url = request.POST.get(f'video_url_{i}', '')
+                    content.video_url.create(video_url=video_url)
             
+            return redirect('newss_list')
     else:
         news_form = NewsForm()
-
+    
     return render(request, 'admin_nimec/news/add_news.html', {'news_form': news_form})
 
 def edit_news(request, news_id):
@@ -202,7 +259,13 @@ def delete_news(request, news_id):
 
 def book_list(request):
     books = Book.objects.all()
-    return render(request, "admin_nimec/library/book_list.html", {'books': books})
+
+    paginator = Paginator(books, 100)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    start_number = (page_obj.number - 1) * paginator.per_page
+    return render(request, "admin_nimec/library/book_list.html", {'page_obj': page_obj, 'start_number': start_number})
 
 def add_book(request):
     if request.method == 'POST':

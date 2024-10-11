@@ -87,17 +87,10 @@
 
         <section>
             <h1 class="text-center mt-3 mb-5 color-02 fw-bold">TỔNG HỢP KHÓA HỌC</h1>
-            <div class="text-star mb-4">
-                {% if current_user.communitymodels.object == 'giảng viên' %}
-                    <a href="{% url 'add_tranning' %}" class="color-04">
-                        <i class='bx bx-book-add offset-1 font-size04'></i>
-                    </a>
-                {% endif %}
-            </div>
 
             <div class="container">
                 <div class="row">
-                    {% for tranning in trannings %}
+                    {% for tranning in  page_obj %}
                         <div class="col-md-4 mb-4">
                             <div class="card h-100">
                                 <a href="{% url 'tranning_detail' tranning.id %}">
@@ -117,6 +110,32 @@
                         {% endif %}
                     {% endfor %}
                 </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
             </div>
         </section>
 

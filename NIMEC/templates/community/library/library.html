@@ -89,7 +89,7 @@
             <h1 class="text-center mt-3 mb-5 color-02 fw-bold">TỔNG HỢP SÁCH</h1>
             <div class="container">
                 <div class="row">
-                    {% for library in librarys %}
+                    {% for library in page_obj %}
                     <div class="col-md-3 mb-4">
                         <div class="card h-100">
                             <a href="{% url 'library_detail' library.id %}">
@@ -110,6 +110,32 @@
                     {% endif %}
                 {% endfor %}
                 </div>
+
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        {% if page_obj.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                                    <span aria-hidden="true">«</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                        
+                        {% for num in page_obj.paginator.page_range %}
+                            <li class="page-item {% if page_obj.number == num %}active{% endif %}">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endfor %}
+                        
+                        {% if page_obj.has_next %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                                    <span aria-hidden="true">»</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </nav>
             </div>
         </section>
 

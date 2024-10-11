@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import NewsForm
 from .models import News, Content, TextStyle
+from django.core.paginator import Paginator
 
 # def add_news(request):
 #     if request.method == 'POST':
@@ -60,8 +61,11 @@ from .models import News, Content, TextStyle
 
 def news_list(request):
     news_list = News.objects.all().order_by('-updated_at')
+    paginator = Paginator(news_list, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     
-    for news in news_list:
+    for news in page_obj:
         images = news.contents.filter(image__isnull=False).first()
         if images:
             news.has_image = True
@@ -69,7 +73,8 @@ def news_list(request):
         else:
             news.has_image = False
             news.first_image = None
-    return render(request, 'community/news/news_list.html', {'news_list': news_list})
+
+    return render(request, 'community/news/news_list.html', {'page_obj': page_obj})
 
 
 def news_detail(request, news_id):

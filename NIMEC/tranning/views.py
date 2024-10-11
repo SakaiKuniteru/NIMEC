@@ -1,14 +1,17 @@
 from django.shortcuts import render, redirect
 from .models import Tranning
 from datetime import datetime, timedelta
-from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
-@login_required
 def tranning(request):
     trannings = Tranning.objects.all()
+    paginator = Paginator(trannings, 30)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     current_user = request.user
     return render(request, 'community/tranning/tranning.html', {
-        'trannings': trannings,
+        'page_obj': page_obj,
         'current_user': current_user
     })
 

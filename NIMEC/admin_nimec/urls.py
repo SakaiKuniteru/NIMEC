@@ -4,7 +4,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin_nimec/admin_login', views.admin, name = 'admin_login'),
+    path('admin_nimec/login', views.admin, name = 'admin_login'),
+    path('logout_admin/', views.logout_admin, name='logout_admin'),
     path('admin_nimec/user/user_list', views.user_list, name = 'user_list'),
     path('admin_nimec/user/add_user', views.add_user, name = 'add_user'),
     path('admin_nimec/user/edit_user/<int:user_id>/', views.edit_user, name='edit_user'),

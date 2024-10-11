@@ -16,13 +16,15 @@
       <link rel="icon" href="{% static 'images/logo.jpg' %}">
       <title>Đăng Ký</title>
     </head>
+
     <body class="d-flex justify-content-center align-items-center vh-100" style="background-size: cover;">
         <div class="login-form bg-white p-4 rounded col-md-4 shadow">
             <h2 class="text-center">LOGIN ADMIN</h2>
-            <form>
+            <form action="{% url 'admin_login' %}" method="POST">
+                {% csrf_token %}
                 <div class="form-group mb-3">
                     <div class="input-group">
-                        <input type="email" class="form-control" placeholder="Admin" required>
+                        <input type="text" name="username" class="form-control" placeholder="Tên đăng nhập" required>
                         <span class="input-group-text">
                             <i class='bx bxs-user'></i>
                         </span>
@@ -31,7 +33,7 @@
                 
                 <div class="form-group mb-3">
                     <div class="input-group">
-                        <input type="password" class="form-control" placeholder="Password" required>
+                        <input type="password" name="password" class="form-control" placeholder="Password" required>
                         <span class="input-group-text">
                             <i class='bx bxs-lock-open'></i>
                         </span>

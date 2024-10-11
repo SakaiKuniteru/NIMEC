@@ -29,7 +29,7 @@ class Content(models.Model):
 class TextStyle(models.Model):
     content = models.ForeignKey(Content, related_name='text_styles', on_delete=models.CASCADE)
     text = models.TextField()
-    text_color = models.CharField(max_length=7, default='#000000')  # Màu sắc cho chữ
+    text_color = models.CharField(max_length=7, default='#000000')
     font_style = models.CharField(max_length=50, choices=[
         ('normal', 'Normal'),
         ('italic', 'Italic'),
