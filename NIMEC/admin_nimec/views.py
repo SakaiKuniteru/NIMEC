@@ -11,6 +11,7 @@ from library.models import Book
 from django.contrib.auth.models import User
 from django.contrib.auth import logout
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 def admin(request):
     if request.method == 'POST':
@@ -31,16 +32,35 @@ def logout_admin(request):
     logout(request)
     return redirect('admin_login')
 
+from django.db.models import Q
+from django.core.paginator import Paginator
+from community.models import CommunityModels
+
 def user_list(request):
-    users = CommunityModels.objects.all()
-    
+    search_query = request.GET.get('search', '')
+
+    if search_query:
+        users = CommunityModels.objects.filter(
+            Q(first_name__icontains=search_query) |
+            Q(last_name__icontains=search_query) |
+            Q(email__icontains=search_query) |
+            Q(phone_number__icontains=search_query) |
+            Q(object__icontains=search_query)
+        )
+    else:
+        users = CommunityModels.objects.all()
+
     paginator = Paginator(users, 100)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     start_number = (page_obj.number - 1) * paginator.per_page
 
-    return render(request, 'admin_nimec/user/user_list.html', {'page_obj': page_obj, 'start_number': start_number})
+    return render(request, 'admin_nimec/user/user_list.html', {
+        'page_obj': page_obj, 
+        'start_number': start_number, 
+        'search_query': search_query
+        })
 
 def add_user(request):
     if request.method == 'POST':
@@ -138,14 +158,27 @@ def delete_user(request, user_id):
     return redirect('user_list')
 
 def course_list(request):
-    courses = Tranning.objects.all()
+    search_query = request.GET.get('search', '')
+
+    if search_query:
+        courses = Tranning.objects.filter(
+            Q(course_name__icontains=search_query) |
+            Q(course_code__icontains=search_query) |
+            Q(full_name__icontains=search_query)
+        )
+    else:
+        courses = Tranning.objects.all()
 
     paginator = Paginator(courses, 100)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     start_number = (page_obj.number - 1) * paginator.per_page
-    return render(request, 'admin_nimec/tranning/course_list.html', {'page_obj': page_obj, 'start_number': start_number})
+    return render(request, 'admin_nimec/tranning/course_list.html', {
+        'page_obj': page_obj, 
+        'start_number': start_number, 
+        'search_query': search_query
+        })
 
 def add_course(request):
     if request.method == 'POST':
@@ -183,14 +216,27 @@ def delete_course(request, course_id):
     return redirect('course_list')
 
 def newss_list(request):
-    news_list = News.objects.all().order_by('-updated_at')
+    search_query = request.GET.get('search', '')
+
+    if search_query:
+        news_list = News.objects.filter(
+            Q(title__icontains=search_query) |
+            Q(created_at__icontains=search_query) |
+            Q(updated_at__icontains=search_query)
+        )
+    else:
+        news_list = News.objects.all().order_by('-updated_at')
 
     paginator = Paginator(news_list, 100)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     start_number = (page_obj.number - 1) * paginator.per_page
-    return render(request, 'admin_nimec/news/news_list.html', {'page_obj': page_obj, 'start_number': start_number})
+    return render(request, 'admin_nimec/news/news_list.html', {
+        'page_obj': page_obj, 
+        'start_number': start_number, 
+        'search_query': search_query
+        })
 
 def add_news(request):
     if request.method == 'POST':
@@ -258,14 +304,27 @@ def delete_news(request, news_id):
     return redirect('newss_list')
 
 def book_list(request):
-    books = Book.objects.all()
+    search_query = request.GET.get('search', '')
+
+    if search_query:
+        books = Book.objects.filter(
+            Q(book_name__icontains=search_query) |
+            Q(author__icontains=search_query) |
+            Q(release_date__icontains=search_query)
+        )
+    else:
+        books = Book.objects.all()
 
     paginator = Paginator(books, 100)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     start_number = (page_obj.number - 1) * paginator.per_page
-    return render(request, "admin_nimec/library/book_list.html", {'page_obj': page_obj, 'start_number': start_number})
+    return render(request, "admin_nimec/library/book_list.html", {
+        'page_obj': page_obj, 
+        'start_number': start_number, 
+        'search_query': search_query
+        })
 
 def add_book(request):
     if request.method == 'POST':

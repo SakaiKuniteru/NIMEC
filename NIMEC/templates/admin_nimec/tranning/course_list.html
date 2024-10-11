@@ -61,8 +61,8 @@
                                         </a>
                                     </div>
                                     <div class="me-2" style="flex: 1; text-align: right;">
-                                        <form class="d-flex justify-content-end" role="search">
-                                            <input class="form-control me-2" type="search" placeholder="Nhập từ khóa..." aria-label="Search" style="border-radius: 25px; border: 1.5px solid #97bdba; width: 200px;">
+                                        <form class="d-flex justify-content-end" role="search" method="GET" action="{% url 'course_list' %}">
+                                            <input class="form-control me-2" type="search" name="search" placeholder="Nhập từ khóa..." aria-label="Search" style="border-radius: 25px; border: 1.5px solid #97bdba; width: 200px;" value="{{ search_query }}">
                                             <button class="btn btn-success" type="submit" style="border-radius: 25px;">Tìm kiếm</button>
                                         </form>
                                     </div>

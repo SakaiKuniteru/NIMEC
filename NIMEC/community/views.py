@@ -6,6 +6,7 @@ from django.contrib.auth import authenticate, login, logout
 from tranning.models import Tranning
 from news.models import News
 from library.models import Book
+from django.db.models import Q
 
 def register(request):
     if request.method == 'POST':
@@ -101,9 +102,31 @@ def signout(request):
     return redirect('/')
 
 def homepage(request):
+    search_query = request.GET.get('search', '')
+
     trannings = Tranning.objects.all()
     librarys = Book.objects.all()
     news_list = News.objects.all().order_by('-updated_at')
+
+    if search_query:
+        # Tìm kiếm trong các trường cần thiết của Tranning
+        trannings = trannings.filter(
+            Q(course_name__icontains=search_query) |
+            Q(full_name__icontains=search_query)
+        )
+        
+        # Tìm kiếm trong các trường cần thiết của Book
+        librarys = librarys.filter(
+            Q(book_name__icontains=search_query) |
+            Q(author__icontains=search_query)
+        )
+
+        # Tìm kiếm trong các trường cần thiết của News
+        news_list = news_list.filter(
+            Q(title__icontains=search_query) |
+            Q(contents__text__icontains=search_query)
+        )
+
     for news in news_list:
         images = news.contents.filter(image__isnull=False).first()
         if images:
@@ -112,8 +135,12 @@ def homepage(request):
         else:
             news.has_image = False
             news.first_image = None
-    return render(request, 'community/homepage.html', {'trannings': trannings, 'news_list': news_list, 'librarys' : librarys})
-
+    return render(request, 'community/homepage.html', {
+        'trannings': trannings,
+        'news_list': news_list,
+        'librarys': librarys,
+        'search_query': search_query
+    })
 def functions_duties(request):
     return render(request, 'community/introduction/functions_duties.html')
 

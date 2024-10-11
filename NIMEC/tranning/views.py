@@ -2,9 +2,18 @@ from django.shortcuts import render, redirect
 from .models import Tranning
 from datetime import datetime, timedelta
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 def tranning(request):
-    trannings = Tranning.objects.all()
+    search_query = request.GET.get('search', '')
+    if search_query:
+        trannings = Tranning.objects.filter(
+            Q(course_name__icontains=search_query) |
+            Q(full_name__icontains=search_query)
+        )
+    else:
+        trannings = Tranning.objects.all()
+
     paginator = Paginator(trannings, 30)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
@@ -12,7 +21,8 @@ def tranning(request):
     current_user = request.user
     return render(request, 'community/tranning/tranning.html', {
         'page_obj': page_obj,
-        'current_user': current_user
+        'current_user': current_user,
+        'search_query': search_query
     })
 
 def add_tranning(request):
